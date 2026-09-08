@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fresh Sips & Juice Wisdom - Penny Juice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#F9A602",
+        "primary-container": "#F9A602",
+        "on-primary": "#ffffff",
+        "inverse-primary": "#e69902",
+        "secondary": "#7CB342",
+        "secondary-container": "#7CB342",
+        "on-secondary": "#ffffff",
+        "background": "#F8FAFC",
+        "on-background": "#1A1A2E",
+        "surface": "#ffffff",
+        "on-surface": "#1A1A2E",
+        "surface-variant": "#f1f5f9",
+        "on-surface-variant": "#64748B",
+        "surface-container": "#ffffff",
+        "surface-container-low": "#f8fafc",
+        "surface-container-lowest": "#ffffff",
+        "surface-container-high": "#e2e8f0",
+        "surface-container-highest": "#cbd5e1",
+        "outline": "#cbd5e1",
+        "outline-variant": "#e2e8f0",
+        "error": "#ba1a1a",
+        "on-error": "#ffffff"
+      },
+      borderRadius: {
+        "DEFAULT": "0.25rem",
+        "md": "0.375rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "2xl": "1rem",
+        "full": "9999px",
+        "card": "16px"
+      },
+      spacing: {
+        "section-margin": "64px",
+        "gutter": "20px",
+        "container-padding": "24px",
+        "base": "8px",
+        "card-gap": "16px",
+        "cart-gap": "24px",
+        "cart-gap-desktop": "32px",
+        "margin-desktop": "64px",
+        "margin-mobile": "24px",
+        "stack-xs": "4px",
+        "stack-sm": "8px",
+        "stack-md": "16px",
+        "stack-lg": "32px",
+        "stack-xl": "48px"
+      },
+      fontFamily: {
+        "body-md": ["Poppins", "sans-serif"],
+        "body-lg": ["Poppins", "sans-serif"],
+        "title-md": ["Poppins", "sans-serif"],
+        "label-md": ["Poppins", "sans-serif"],
+        "headline-md": ["Poppins", "sans-serif"],
+        "headline-lg": ["Poppins", "sans-serif"],
+        "headline-lg-mobile": ["Poppins", "sans-serif"],
+        "display-lg": ["Poppins", "sans-serif"]
+      },
+      fontSize: {
+        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+        "display-lg": ["48px", {"lineHeight": "56px", "fontWeight": "700"}]
+      },
+      boxShadow: {
+        "low": "0px 4px 20px rgba(26, 26, 46, 0.06)",
+        "high": "0px 12px 32px rgba(26, 26, 46, 0.12)"
+      }
+    }
+  }
+}
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(26,26,46,0.06), 0 4px 10px -5px rgba(26,26,46,0.04);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-[#F8FAFC]">
+
+<style id="pj-master-style">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+*{box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E;margin:0;padding:0;overflow-x:hidden;}
+
+/* SINGLE UNIFIED TOP NAVBAR */
+.pj-nav{position:sticky;top:0;left:0;right:0;width:100%;z-index:9999;background:#ffffff;border-bottom:1px solid #F1F5F9;box-shadow:0 2px 10px rgba(0,0,0,0.03);height:72px;display:flex;align-items:center;font-family:'Poppins',sans-serif;}
+.pj-nav .pj-inner{max-width:1280px;margin:0 auto;width:100%;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
+.pj-logo{font-size:22px;font-weight:800;color:#F9A602;text-decoration:none;display:flex;align-items:center;gap:6px;letter-spacing:-0.5px;transition:transform 0.2s;}
+.pj-logo:hover{transform:scale(1.02);}
+.pj-logo span{color:#1A1A2E;}
+.pj-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
+.pj-links a{font-size:14px;font-weight:500;color:#64748B;text-decoration:none;padding:8px 16px;border-radius:50px;transition:all 0.2s;}
+.pj-links a:hover{color:#F9A602;background:rgba(249,166,2,0.06);}
+.pj-links a.active{color:#F9A602;background:#FFF7E6;font-weight:600;}
+.pj-icons{display:flex;align-items:center;gap:8px;}
+.pj-icons a{font-size:13px;font-weight:500;color:#64748B;text-decoration:none;padding:8px;width:36px;height:36px;justify-content:center;border-radius:50px;transition:all 0.2s;display:flex;align-items:center;gap:6px;}
+.pj-icons a.pj-cart{width:auto;padding:8px 16px;}
+.pj-icons a:hover{background:#FFF7E6;color:#F9A602;}
+.pj-icons a.active{color:#F9A602;background:#FFF7E6;font-weight:600;}
+.pj-icons .pj-cart{background:linear-gradient(135deg,#F9A602,#FF7043);color:#ffffff!important;font-weight:600;box-shadow:0 4px 12px rgba(249,166,2,0.25);}
+.pj-icons .pj-cart:hover{opacity:0.92;box-shadow:0 6px 18px rgba(249,166,2,0.35);color:#ffffff!important;}
+@media(max-width:860px){.pj-links{display:none;}.pj-icons a:not(.pj-cart){display:none;}.pj-nav .pj-inner{padding:0 20px;}}
+
+/* 100% FULL-WIDTH COVER BANNER */
+.pj-hero-banner{position:relative;width:100%;min-height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:64px 24px;box-sizing:border-box;margin:0;left:0;right:0;}
+.pj-hero-banner .pj-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;}
+.pj-hero-banner .pj-hero-overlay{position:absolute;inset:0;z-index:1;}
+.pj-hero-banner .pj-hero-content{position:relative;z-index:2;max-width:780px;margin:0 auto;text-align:center;}
+.pj-hero-banner .pj-hero-breadcrumb{font-size:12px;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.85);margin:0 0 10px;text-transform:uppercase;display:inline-block;}
+.pj-hero-banner h1{font-size:clamp(30px,4.5vw,50px);font-weight:800;color:#ffffff;line-height:1.15;margin:0 0 12px;text-shadow:0 2px 16px rgba(0,0,0,0.25);}
+.pj-hero-banner p{font-size:16px;color:rgba(255,255,255,0.92);max-width:560px;margin:0 auto;line-height:1.6;}
+</style>
+
+<nav class="pj-nav" id="pj-main-nav">
+  <div class="pj-inner">
+    <a href="index.html" class="pj-logo">🍊 Penny<span>Juice</span></a>
+    <ul class="pj-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="ingredients.html">Ingredients</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <div class="pj-icons">
+      <a href="search.html" title="Search"><span class="material-symbols-outlined">search</span></a>
+      <a href="login.html" title="Login"><span class="material-symbols-outlined">person</span></a>
+      <a href="cart.html" class="pj-cart" title="Cart"><span class="material-symbols-outlined">shopping_cart</span> (3)</a>
+    </div>
+  </div>
+</nav>
+<!-- FULL-WIDTH COVER BANNER -->
+<div class="pj-hero-banner">
+  <div class="pj-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1519996409144-56c88c35a5ce?w=1400&q=80');"></div>
+  <div class="pj-hero-overlay" style="background:linear-gradient(135deg, rgba(26,26,46,0.85) 0%, rgba(249,166,2,0.75) 100%);"></div>
+  <div class="pj-hero-content">
+    <span class="pj-hero-breadcrumb">HOME › BLOG</span>
+    <h1>Fresh Sips & Juice Wisdom</h1>
+    <p>Explore the vibrant world of organic juices, wellness, and nature’s best-kept secrets.</p>
+  </div>
+</div>
+
+<main class="flex-grow w-full py-10">
+  <div class="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- CATEGORY FILTER PILLS -->
+    <div class="flex items-center gap-3 overflow-x-auto no-scrollbar pb-6 mb-8 border-b border-slate-200/60">
+      <button class="px-6 py-2.5 rounded-full bg-[#1A1A2E] text-white font-bold text-xs uppercase tracking-wider shadow-sm hover:bg-[#F9A602] transition-colors whitespace-nowrap">All Stories</button>
+      <button class="px-5 py-2.5 rounded-full bg-white text-gray-600 hover:text-[#F9A602] hover:bg-[#FFF7E6] font-bold text-xs uppercase tracking-wider transition-colors border border-slate-200/80 whitespace-nowrap">Superfoods</button>
+      <button class="px-5 py-2.5 rounded-full bg-white text-gray-600 hover:text-[#F9A602] hover:bg-[#FFF7E6] font-bold text-xs uppercase tracking-wider transition-colors border border-slate-200/80 whitespace-nowrap">Nutrition Science</button>
+      <button class="px-5 py-2.5 rounded-full bg-white text-gray-600 hover:text-[#F9A602] hover:bg-[#FFF7E6] font-bold text-xs uppercase tracking-wider transition-colors border border-slate-200/80 whitespace-nowrap">Mind & Mood</button>
+      <button class="px-5 py-2.5 rounded-full bg-white text-gray-600 hover:text-[#F9A602] hover:bg-[#FFF7E6] font-bold text-xs uppercase tracking-wider transition-colors border border-slate-200/80 whitespace-nowrap">Farm Sourcing</button>
+    </div>
+
+    <!-- FEATURED HERO STORY: POWER DUO (KIWIS & PINEAPPLES) -->
+    <article class="bg-white rounded-[36px] border border-slate-100 shadow-[0_15px_45px_rgba(0,0,0,0.06)] overflow-hidden mb-16 group hover:shadow-[0_25px_60px_rgba(249,166,2,0.15)] transition-all duration-500">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+        
+        <!-- Left Column: Story Content -->
+        <div class="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-between">
+          <div>
+            <!-- Badges -->
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#E8F5E9] text-[#2E7D32] text-xs font-black uppercase tracking-wider border border-[#C8E6C9]">
+                <span class="material-symbols-outlined text-[15px]">star</span> Editor's Pick
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wider border border-amber-200">
+                Superfruit Spotlight
+              </span>
+              <span class="text-gray-400 text-xs font-medium flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">calendar_today</span> APRIL 25th, 2025
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-[#1A1A2E] leading-tight mb-5 group-hover:text-[#F9A602] transition-colors">
+              Power Duo: Why Kiwis and Pineapples Are the Superfruits You Need
+            </h2>
+
+            <!-- Lead Paragraph -->
+            <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 font-normal">
+              When it comes to bold flavors and vibrant nutrition, few fruits can compete with the dynamic duo of kiwis and pineapples. Both tropical treats are more than just pretty faces in your smoothie—they pack serious health benefits that can boost your energy, digestion, and skin glow.
+            </p>
+
+            <!-- Dual Superfruit Benefit Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <!-- Kiwi Block -->
+              <div class="bg-[#F1F8E9] rounded-2xl p-4 border border-[#DCEDC8]">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="w-7 h-7 rounded-full bg-[#7CB342] text-white flex items-center justify-center font-bold text-xs">🥝</span>
+                  <h4 class="font-extrabold text-[#2E7D32] text-sm">Kiwi Vitality</h4>
+                </div>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  With electric green flesh and tiny seeds, kiwis are rich in vitamin C, vitamin K, and fiber. They support immunity, aid digestion, and add tangy sweet punch to bowls and salsas.
+                </p>
+              </div>
+
+              <!-- Pineapple Block -->
+              <div class="bg-[#FFF8E1] rounded-2xl p-4 border border-[#FFE082]">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="w-7 h-7 rounded-full bg-[#F9A602] text-white flex items-center justify-center font-bold text-xs">🍍</span>
+                  <h4 class="font-extrabold text-[#E65100] text-sm">Pineapple Sunshine</h4>
+                </div>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  Nature's sunshine, loaded with bromelain enzyme for reducing inflammation and aiding digestion. Excellent source of manganese and vitamin B6 for sweet and savory dishes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Author Footnote & Action -->
+          <div class="pt-6 border-t border-slate-100 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-[#F9A602] to-[#FF7043] flex items-center justify-center text-white font-extrabold text-sm shadow-sm">
+                L
+              </div>
+              <div>
+                <p class="font-bold text-sm text-[#1A1A2E]">Written by LUIS</p>
+                <p class="text-xs text-gray-400">Wellness & Nutrition Editor • 5 min read</p>
+              </div>
+            </div>
+            <a href="shop.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#1A1A2E] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#F9A602] transition-colors shadow-sm">
+              <span>Taste Both</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Hero Visual Image -->
+        <div class="lg:col-span-5 relative min-h-[380px] lg:min-h-full overflow-hidden bg-slate-100">
+          <img src="images/blog-kiwi-pineapple.jpg" alt="Splashing Kiwis and Pineapples" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent lg:hidden"></div>
+          <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-extrabold text-[#1A1A2E] shadow-sm flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-sm text-[#7CB342]">auto_awesome</span> Superfood Duo
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- SECTION TITLE: RECENT DISPATCHES -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+      <div>
+        <span class="text-xs font-extrabold text-[#F9A602] uppercase tracking-widest block mb-1">FRESH PERSPECTIVES</span>
+        <h3 class="text-2xl sm:text-3xl font-black text-[#1A1A2E] tracking-tight">Essential Juice Wisdom</h3>
+      </div>
+      <p class="text-gray-500 text-sm max-w-md mt-2 sm:mt-0">
+        Science-backed wellness, botanical breakdowns, and tips to elevate your vitality.
+      </p>
+    </div>
+
+    <!-- 3 USER SPOTLIGHT ARTICLES (COLD PRESSED, MOOD BOOSTERS, MANGO MAGIC) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+      
+      <!-- Article 1: Cold-Pressed Gold Standard -->
+      <article class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(249,166,2,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <!-- Thumbnail -->
+          <div class="relative w-full aspect-[16/10] overflow-hidden">
+            <img src="images/blog-cold-pressed.jpg" alt="Cold-Pressed Juicing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-extrabold text-amber-900 shadow-xs uppercase tracking-wider">
+              🍋 Science of Juicing
+            </span>
+          </div>
+          <!-- Body -->
+          <div class="p-7">
+            <div class="flex items-center gap-2 text-xs text-gray-400 font-medium mb-3">
+              <span>Nutrition Standard</span> • <span>4 min read</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-[#1A1A2E] mb-3 group-hover:text-[#F9A602] transition-colors leading-snug">
+              🍋 Why Cold-Pressed is the Gold Standard
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              Cold-pressed juice preserves more nutrients, flavor, and life-force from fruits. Learn how hydraulic extraction keeps enzymes intact so your body can truly <em class="text-[#1A1A2E] font-medium">absorb the good stuff</em> without heat degradation.
+            </p>
+          </div>
+        </div>
+        <!-- Footer -->
+        <div class="px-7 pb-7 pt-0">
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="font-bold text-gray-500">By Dr. Elena</span>
+            <span class="font-bold text-[#F9A602] group-hover:translate-x-1 transition-transform flex items-center gap-1">Read Article <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 2: Top 5 Ingredients That Boost Your Mood -->
+      <article class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(46,125,50,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <!-- Thumbnail -->
+          <div class="relative w-full aspect-[16/10] overflow-hidden">
+            <img src="images/blog-mood-boosters.jpg" alt="Botanicals Mood Boosters" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-extrabold text-emerald-900 shadow-xs uppercase tracking-wider">
+              🌱 Mood & Mind
+            </span>
+          </div>
+          <!-- Body -->
+          <div class="p-7">
+            <div class="flex items-center gap-2 text-xs text-gray-400 font-medium mb-3">
+              <span>Botanical Wellness</span> • <span>5 min read</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-[#1A1A2E] mb-3 group-hover:text-[#2E7D32] transition-colors leading-snug">
+              🌱 Top 5 Ingredients That Boost Your Mood
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              From invigorating lemon zest to soothing fresh spearmint, nature provides potent biochemical mood-lifters. Here’s our definitive list of juice-friendly botanicals that brighten your day and restore mental clarity.
+            </p>
+          </div>
+        </div>
+        <!-- Footer -->
+        <div class="px-7 pb-7 pt-0">
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="font-bold text-gray-500">By Petunia</span>
+            <span class="font-bold text-[#2E7D32] group-hover:translate-x-1 transition-transform flex items-center gap-1">Read Article <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 3: A Deep Dive Into Mango Magic -->
+      <article class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(255,112,67,0.15)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <!-- Thumbnail -->
+          <div class="relative w-full aspect-[16/10] overflow-hidden">
+            <img src="images/blog-mango-magic.jpg" alt="Mango Magic" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-extrabold text-orange-900 shadow-xs uppercase tracking-wider">
+              🥭 Flavor Spotlight
+            </span>
+          </div>
+          <!-- Body -->
+          <div class="p-7">
+            <div class="flex items-center gap-2 text-xs text-gray-400 font-medium mb-3">
+              <span>Fruit Spotlight</span> • <span>6 min read</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-[#1A1A2E] mb-3 group-hover:text-[#FF7043] transition-colors leading-snug">
+              🥭 A Deep Dive Into Mango Magic
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              Mango isn’t just a summer favorite—it’s overflowing with cellular antioxidants and skin-glowing beta-carotene. Discover why this luscious fruit stars centrally in our customer-favorite <span class="text-[#1A1A2E] font-semibold">Golden Aura</span> blend.
+            </p>
+          </div>
+        </div>
+        <!-- Footer -->
+        <div class="px-7 pb-7 pt-0">
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="font-bold text-gray-500">By Luis</span>
+            <span class="font-bold text-[#FF7043] group-hover:translate-x-1 transition-transform flex items-center gap-1">Read Article <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+
+  </div>
+</main>
+
+
+<!-- UNIFIED FOOTER -->
+<footer class="bg-[#1A1A2E] text-white w-full py-16 mt-auto font-['Poppins']">
+  <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="flex flex-col gap-4">
+      <a href="index.html" class="text-2xl font-black text-[#F9A602] tracking-tight flex items-center gap-2">
+        🍊 Penny<span class="text-white">Juice</span>
+      </a>
+      <p class="text-gray-400 text-sm leading-relaxed max-w-[250px]">
+        Vibrant, health-conscious organic juices delivered fresh to your door. Taste the difference of pure nature.
+      </p>
+      <div class="flex gap-4 mt-2">
+        <a href="#" class="text-gray-400 hover:text-[#F9A602] transition-colors">
+          <span class="material-symbols-outlined">share</span>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-[#F9A602] transition-colors">
+          <span class="material-symbols-outlined">thumb_up</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Shop</h4>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="shop.html">All Juices</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="learn.html">Our Process</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="ingredients.html">Ingredients</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Company</h4>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="blog.html">Blog</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="contact.html">Contact Us</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="faq.html">FAQ</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Newsletter</h4>
+      <p class="text-gray-400 text-sm">Subscribe to get 10% off your first order!</p>
+      <div class="flex mt-2">
+        <input type="email" placeholder="Your email" class="bg-white/10 text-white px-4 py-2 rounded-l-full outline-none focus:bg-white/20 transition-colors w-full text-sm">
+        <button class="bg-gradient-to-r from-[#F9A602] to-[#FF7043] px-4 py-2 rounded-r-full font-bold text-sm hover:opacity-90 transition-opacity whitespace-nowrap text-white">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-[1280px] mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-gray-500 text-sm">© 2026 Penny Juice. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a>
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Terms of Service</a>
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Shipping Info</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

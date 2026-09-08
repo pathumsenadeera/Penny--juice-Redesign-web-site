@@ -1,0 +1,32 @@
+﻿{
+  "name": "projects/7350323181604267350",
+  "projectId": "7350323181604267350",
+  "title": "Penny Juice Modern Redesign",
+  "visibility": "PRIVATE",
+  "createTime": "2026-09-06T10:55:16.519622Z",
+  "updateTime": "2026-09-06T11:16:55.000000Z",
+  "projectType": "PROJECT_DESIGN",
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "POPPINS",
+    "customColor": "#F9A602",
+    "roundness": "ROUND_EIGHT"
+  },
+  "screens": {
+    "index": { "id": "82b2750a54e4424185078ab4699c6f32", "sourceScreen": "projects/7350323181604267350/screens/82b2750a54e4424185078ab4699c6f32", "width": 2560, "height": 5516, "title": "Penny Juice Landing Page" },
+    "shop": { "id": "08ad6efa5b804edcbfac47f8f9a8cf1f", "sourceScreen": "projects/7350323181604267350/screens/08ad6efa5b804edcbfac47f8f9a8cf1f", "width": 2560, "height": 2426, "title": "Penny Juice Shop" },
+    "product-detail": { "id": "5874a1d6d48a42c79c5c10a5d3185404", "sourceScreen": "projects/7350323181604267350/screens/5874a1d6d48a42c79c5c10a5d3185404", "width": 2560, "height": 5094, "title": "Kiwi Vitality Product Detail" },
+    "learn": { "id": "d1a2d5224da3499ba02082fd1618c2fe", "sourceScreen": "projects/7350323181604267350/screens/d1a2d5224da3499ba02082fd1618c2fe", "width": 2560, "height": 4200, "title": "Penny Juice Learn Page" },
+    "ingredients": { "id": "5455a691a4b1445bb47bb022295bdd94", "sourceScreen": "projects/7350323181604267350/screens/5455a691a4b1445bb47bb022295bdd94", "width": 2560, "height": 4800, "title": "Penny Juice Ingredients" },
+    "blog": { "id": "82a2ef5321cc4c79b0e0ab6b4365a989", "sourceScreen": "projects/7350323181604267350/screens/82a2ef5321cc4c79b0e0ab6b4365a989", "width": 2560, "height": 4100, "title": "Penny Juice Blog Listing" },
+    "contact": { "id": "63aed1eb88bf42d2b9e789ee1f0c2659", "sourceScreen": "projects/7350323181604267350/screens/63aed1eb88bf42d2b9e789ee1f0c2659", "width": 2560, "height": 3800, "title": "Penny Juice Contact Us" },
+    "search": { "id": "c38dfb2515b54724bf8523c41c8bfb59", "sourceScreen": "projects/7350323181604267350/screens/c38dfb2515b54724bf8523c41c8bfb59", "width": 2560, "height": 2744, "title": "Penny Juice Search Results" },
+    "login": { "id": "200490b2dc2140d9a7856ca6a0c03c1d", "sourceScreen": "projects/7350323181604267350/screens/200490b2dc2140d9a7856ca6a0c03c1d", "width": 2560, "height": 2096, "title": "Penny Juice Login" },
+    "cart": { "id": "ffd0d021e5b14da1acaf7285f133c2a3", "sourceScreen": "projects/7350323181604267350/screens/ffd0d021e5b14da1acaf7285f133c2a3", "width": 2560, "height": 3200, "title": "Penny Juice Shopping Cart" },
+    "checkout": { "id": "2d8d9bb3395c47408b0f9d2aff6e3e7c", "sourceScreen": "projects/7350323181604267350/screens/2d8d9bb3395c47408b0f9d2aff6e3e7c", "width": 2560, "height": 3600, "title": "Penny Juice Checkout" },
+    "faq": { "id": "200490b2dc2140d9a7856ca6a0c03c1d", "sourceScreen": "projects/7350323181604267350/screens/200490b2dc2140d9a7856ca6a0c03c1d", "width": 2560, "height": 3400, "title": "Penny Juice FAQ" }
+  },
+  "metadata": { "userRole": "OWNER" }
+}

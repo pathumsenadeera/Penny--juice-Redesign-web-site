@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Member Login - Penny Juice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#F9A602",
+        "primary-container": "#F9A602",
+        "secondary": "#7CB342",
+        "secondary-container": "#7CB342",
+        "background": "#F8FAFC",
+        "on-background": "#1A1A2E",
+        "surface": "#ffffff",
+        "surface-variant": "#f1f5f9",
+        "on-surface-variant": "#64748B"
+      }
+    }
+  }
+}
+</script>
+<style id="pj-master-style">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E;margin:0;padding:0;overflow-x:hidden;}
+
+/* SINGLE UNIFIED TOP NAVBAR */
+.pj-nav{position:sticky;top:0;left:0;right:0;width:100%;z-index:9999;background:#ffffff;border-bottom:1px solid #F1F5F9;box-shadow:0 2px 10px rgba(0,0,0,0.03);height:72px;display:flex;align-items:center;font-family:'Poppins',sans-serif;}
+.pj-nav .pj-inner{max-width:1280px;margin:0 auto;width:100%;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
+.pj-logo{font-size:22px;font-weight:800;color:#F9A602;text-decoration:none;display:flex;align-items:center;gap:6px;letter-spacing:-0.5px;transition:transform 0.2s;}
+.pj-logo:hover{transform:scale(1.02);}
+.pj-logo span{color:#1A1A2E;}
+.pj-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
+.pj-links a{font-size:14px;font-weight:500;color:#64748B;text-decoration:none;padding:8px 16px;border-radius:50px;transition:all 0.2s;}
+.pj-links a:hover{color:#F9A602;background:rgba(249,166,2,0.06);}
+.pj-links a.active{color:#F9A602;background:#FFF7E6;font-weight:600;}
+.pj-icons{display:flex;align-items:center;gap:8px;}
+.pj-icons a{font-size:13px;font-weight:500;color:#64748B;text-decoration:none;padding:8px;width:36px;height:36px;justify-content:center;border-radius:50px;transition:all 0.2s;display:flex;align-items:center;gap:6px;}
+.pj-icons a.pj-cart{width:auto;padding:8px 16px;}
+.pj-icons a:hover{background:#FFF7E6;color:#F9A602;}
+.pj-icons a.active{color:#F9A602;background:#FFF7E6;font-weight:600;}
+.pj-icons .pj-cart{background:linear-gradient(135deg,#F9A602,#FF7043);color:#ffffff!important;font-weight:600;box-shadow:0 4px 12px rgba(249,166,2,0.25);}
+.pj-icons .pj-cart:hover{opacity:0.92;box-shadow:0 6px 18px rgba(249,166,2,0.35);color:#ffffff!important;}
+@media(max-width:860px){.pj-links{display:none;}.pj-icons a:not(.pj-cart){display:none;}.pj-nav .pj-inner{padding:0 20px;}}
+
+/* 100% FULL-WIDTH COVER BANNER */
+.pj-hero-banner{position:relative;width:100%;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:50px 24px;box-sizing:border-box;margin:0;left:0;right:0;}
+.pj-hero-banner .pj-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;}
+.pj-hero-banner .pj-hero-overlay{position:absolute;inset:0;z-index:1;}
+.pj-hero-banner .pj-hero-content{position:relative;z-index:2;max-width:760px;margin:0 auto;text-align:center;}
+.pj-hero-banner .pj-hero-breadcrumb{font-size:12px;font-weight:700;letter-spacing:0.12em;color:#FFE082;margin:0 0 10px;text-transform:uppercase;display:inline-block;}
+.pj-hero-banner h1{font-size:clamp(28px,4.2vw,46px);font-weight:800;color:#ffffff;line-height:1.15;margin:0 0 10px;text-shadow:0 3px 20px rgba(0,0,0,0.35);letter-spacing:-0.5px;}
+.pj-hero-banner p{font-size:15px;color:rgba(255,255,255,0.95);max-width:560px;margin:0 auto;line-height:1.6;text-shadow:0 2px 10px rgba(0,0,0,0.25);}
+
+/* SLIDING AUTH TABS */
+.auth-tab.active {
+  background: #ffffff;
+  color: #1A1A2E;
+  box-shadow: 0 4px 12px rgba(26,26,46,0.08);
+  font-weight: 700;
+}
+
+/* TOAST NOTIFICATION */
+#loginToast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 10000;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#loginToast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+</style>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-[#F8FAFC]">
+
+<!-- SINGLE UNIFIED TOP NAVBAR -->
+<nav class="pj-nav" id="pj-main-nav">
+  <div class="pj-inner">
+    <a href="index.html" class="pj-logo">🍊 Penny<span>Juice</span></a>
+    <ul class="pj-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="ingredients.html">Ingredients</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <div class="pj-icons">
+      <a href="search.html" title="Search"><span class="material-symbols-outlined">search</span></a>
+      <a href="login.html" class="active" title="Login"><span class="material-symbols-outlined">person</span></a>
+      <a href="cart.html" class="pj-cart" title="Cart"><span class="material-symbols-outlined">shopping_cart</span> (3)</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 100% FULL-WIDTH COVER BANNER -->
+<div class="pj-hero-banner">
+  <div class="pj-hero-bg" style="background-image:url('images/faq-fruits-splash.jpg');"></div>
+  <div class="pj-hero-overlay" style="background:linear-gradient(135deg, rgba(26,26,46,0.88) 0%, rgba(249,166,2,0.8) 100%);"></div>
+  <div class="pj-hero-content">
+    <span class="pj-hero-breadcrumb">HOME › MEMBER ACCESS</span>
+    <h1 id="bannerTitle">Welcome to Penny Juice</h1>
+    <p id="bannerDesc">Sign in to track deliveries, earn wellness rewards, and enjoy exclusive member perks.</p>
+  </div>
+</div>
+
+<main class="flex-grow max-w-[1020px] mx-auto w-full px-4 sm:px-6 py-12 flex items-center justify-center">
+
+  <!-- CREATIVE & CLEAN SPLIT AUTH CARD -->
+  <div class="w-full bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-[0_12px_40px_rgba(26,26,46,0.06)] grid grid-cols-1 md:grid-cols-12">
+    
+    <!-- LEFT PANEL: CREATIVE BRAND SHOWCASE (5 cols) -->
+    <div class="hidden md:flex md:col-span-5 relative flex-col justify-between p-8 sm:p-10 text-white overflow-hidden">
+      <!-- Background photo with warm gradient overlay -->
+      <img src="images/blog-mango-magic.jpg" alt="Penny Juice Splash" class="absolute inset-0 w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/95 via-[#1A1A2E]/70 to-[#F9A602]/40"></div>
+
+      <!-- Content -->
+      <div class="relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-bold text-amber-200 mb-6">
+          <span>🍊</span> Pure Juice Club
+        </div>
+        <h3 class="text-2xl font-extrabold text-white leading-tight mb-2">Taste Nature's Fresh Energy</h3>
+        <p class="text-xs text-slate-200 leading-relaxed">Join thousands of health enthusiasts enjoying cold-pressed fruit juices delivered directly to their door.</p>
+      </div>
+
+      <div class="relative z-10 space-y-3.5 my-8">
+        <div class="flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-base">check</span>
+          </div>
+          <span class="text-xs text-slate-100 font-medium">10% off recurring weekly orders</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-base">check</span>
+          </div>
+          <span class="text-xs text-slate-100 font-medium">Early access to seasonal flavors</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-base">check</span>
+          </div>
+          <span class="text-xs text-slate-100 font-medium">Live cold-chain shipment tracking</span>
+        </div>
+      </div>
+
+      <div class="relative z-10 pt-4 border-t border-white/15 flex items-center justify-between text-[11px] text-amber-200/90 font-medium">
+        <span>⭐ 4.9/5 Rating</span>
+        <span>50,000+ Happy Customers</span>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: SIMPLE & DELIGHTFUL FORM (7 cols) -->
+    <div class="md:col-span-7 p-8 sm:p-10 flex flex-col justify-center">
+      
+      <!-- Segmented Tab Switcher (Log In / Register) -->
+      <div class="p-1 bg-slate-100 rounded-2xl flex items-center mb-7 max-w-sm">
+        <button type="button" id="tabLogin" onclick="setAuthMode('login')" class="auth-tab active flex-1 py-2 text-xs font-semibold rounded-xl text-slate-600 transition-all text-center">
+          Sign In
+        </button>
+        <button type="button" id="tabRegister" onclick="setAuthMode('register')" class="auth-tab flex-1 py-2 text-xs font-semibold rounded-xl text-slate-600 transition-all text-center">
+          Create Account
+        </button>
+      </div>
+
+      <div class="mb-6">
+        <h2 id="formHeading" class="text-2xl font-black text-[#1A1A2E]">Welcome Back</h2>
+        <p id="formSubheading" class="text-xs sm:text-sm text-slate-500 mt-1">Enter your details below to access your juice account.</p>
+      </div>
+
+      <!-- Social Logins (Google & Apple) -->
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <button type="button" onclick="handleSocialLogin('Google')" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-xs font-semibold text-slate-700 transition-all shadow-sm">
+          <svg class="w-4 h-4" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          Google
+        </button>
+
+        <button type="button" onclick="handleSocialLogin('Apple')" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-xs font-semibold text-slate-700 transition-all shadow-sm">
+          <svg class="w-4 h-4 fill-current text-black" viewBox="0 0 170 170">
+            <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.63-7.74-11.78-14.09-5.74-8.8-10.2-18.73-13.38-29.79-3.18-11.06-4.78-21.73-4.78-32.01 0-14.15 3.53-26.04 10.6-35.68 7.07-9.64 16.03-14.54 26.88-14.7 4.8 0 10.15 1.25 16.06 3.75 5.91 2.5 9.71 3.81 11.4 3.93 1.93-.24 5.92-1.63 11.97-4.17 6.05-2.54 11.16-3.7 15.34-3.5 11.76.65 21.28 4.85 28.56 12.6-10.29 6.25-15.32 14.86-15.11 25.82.22 8.6 3.58 15.84 10.1 21.73 6.51 5.88 14.28 9.17 23.3 9.87-2.3 6.94-5.26 14.12-8.88 21.53zM119.22 31.84c0-7.39 2.65-14.28 7.96-20.67 5.3-6.39 11.83-10.42 19.57-12.09.22 1.3.33 2.4.33 3.3 0 7.39-2.73 14.38-8.2 20.97-5.46 6.59-12 10.46-19.66 11.62v-3.13z"/>
+          </svg>
+          Apple
+        </button>
+      </div>
+
+      <!-- Divider -->
+      <div class="relative flex items-center justify-center mb-6">
+        <div class="w-full border-t border-slate-200"></div>
+        <span class="absolute bg-white px-3 text-[11px] text-slate-400 uppercase tracking-wider font-medium">or continue with email</span>
+      </div>
+
+      <!-- FORM -->
+      <form id="authForm" onsubmit="handleAuthSubmit(event)" class="space-y-4">
+        
+        <!-- Full Name (Visible only on Register) -->
+        <div id="nameFieldContainer" class="hidden">
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="authName">Full Name</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-4 top-3 text-slate-400 text-lg">person</span>
+            <input class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl pl-11 pr-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:border-[#F9A602] focus:ring-2 focus:ring-[#F9A602]/20 focus:outline-none transition-all" id="authName" placeholder="Alex Morgan" type="text"/>
+          </div>
+        </div>
+
+        <!-- Email Address -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="authEmail">Email Address</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-4 top-3 text-slate-400 text-lg">mail</span>
+            <input required class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl pl-11 pr-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:border-[#F9A602] focus:ring-2 focus:ring-[#F9A602]/20 focus:outline-none transition-all" id="authEmail" placeholder="you@example.com" type="email"/>
+          </div>
+        </div>
+
+        <!-- Password with Eye Toggle -->
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider" for="authPassword">Password</label>
+            <a href="javascript:void(0)" onclick="handleForgotPassword()" id="forgotPasswordLink" class="text-xs font-semibold text-[#F9A602] hover:underline">Forgot password?</a>
+          </div>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-4 top-3 text-slate-400 text-lg">lock</span>
+            <input required class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl pl-11 pr-11 py-3 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:border-[#F9A602] focus:ring-2 focus:ring-[#F9A602]/20 focus:outline-none transition-all" id="authPassword" placeholder="••••••••" type="password"/>
+            <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-3 text-slate-400 hover:text-slate-600 transition-colors">
+              <span class="material-symbols-outlined text-lg" id="eyeIcon">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Remember Me Checkbox -->
+        <div class="flex items-center gap-2 pt-1">
+          <input type="checkbox" id="rememberMe" checked class="w-4 h-4 text-[#F9A602] rounded border-slate-300 focus:ring-[#F9A602] cursor-pointer"/>
+          <label for="rememberMe" class="text-xs text-slate-600 select-none cursor-pointer">Remember my login on this device</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button id="authSubmitBtn" type="submit" class="w-full bg-gradient-to-r from-[#F9A602] to-[#FF7043] text-white font-bold py-3.5 rounded-full shadow-[0_4px_16px_rgba(249,166,2,0.3)] hover:shadow-[0_6px_20px_rgba(249,166,2,0.4)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-2 text-sm tracking-wide mt-2">
+          <span id="btnText">Sign In to Penny Juice</span>
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </button>
+
+      </form>
+
+      <!-- Bottom Switch Note -->
+      <div class="mt-6 text-center text-xs text-slate-500">
+        <span id="switchPrompt">Don't have an account yet?</span>
+        <button type="button" onclick="toggleAuthMode()" id="switchLink" class="font-bold text-[#F9A602] hover:underline ml-1">Create one now</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<!-- TOAST CONFIRMATION -->
+<div id="loginToast" class="bg-[#1A1A2E] text-white px-6 py-4 rounded-2xl shadow-2xl border border-white/20 flex items-center gap-3">
+  <span class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-sm">✓</span>
+  <div>
+    <h4 class="font-bold text-sm text-white" id="toastTitle">Welcome back!</h4>
+    <p class="text-xs text-slate-300" id="toastDesc">Logging you in to your Penny Juice account...</p>
+  </div>
+</div>
+
+<script>
+let currentMode = 'login';
+
+function setAuthMode(mode) {
+  currentMode = mode;
+  const tabLogin = document.getElementById('tabLogin');
+  const tabRegister = document.getElementById('tabRegister');
+  const nameField = document.getElementById('nameFieldContainer');
+  const authName = document.getElementById('authName');
+  const formHeading = document.getElementById('formHeading');
+  const formSubheading = document.getElementById('formSubheading');
+  const btnText = document.getElementById('btnText');
+  const forgotLink = document.getElementById('forgotPasswordLink');
+  const switchPrompt = document.getElementById('switchPrompt');
+  const switchLink = document.getElementById('switchLink');
+  const bannerTitle = document.getElementById('bannerTitle');
+
+  if (mode === 'register') {
+    tabLogin.classList.remove('active');
+    tabRegister.classList.add('active');
+    nameField.classList.remove('hidden');
+    authName.required = true;
+    formHeading.innerText = 'Create an Account';
+    formSubheading.innerText = 'Join the Penny Juice Club for discounts and perks.';
+    btnText.innerText = 'Create My Account';
+    forgotLink.style.display = 'none';
+    switchPrompt.innerText = 'Already a member?';
+    switchLink.innerText = 'Sign in here';
+    bannerTitle.innerText = 'Join the Juice Club';
+  } else {
+    tabRegister.classList.remove('active');
+    tabLogin.classList.add('active');
+    nameField.classList.add('hidden');
+    authName.required = false;
+    formHeading.innerText = 'Welcome Back';
+    formSubheading.innerText = 'Enter your details below to access your juice account.';
+    btnText.innerText = 'Sign In to Penny Juice';
+    forgotLink.style.display = 'block';
+    switchPrompt.innerText = "Don't have an account yet?";
+    switchLink.innerText = 'Create one now';
+    bannerTitle.innerText = 'Welcome to Penny Juice';
+  }
+}
+
+function toggleAuthMode() {
+  setAuthMode(currentMode === 'login' ? 'register' : 'login');
+}
+
+function togglePasswordVisibility() {
+  const pwdInput = document.getElementById('authPassword');
+  const eyeIcon = document.getElementById('eyeIcon');
+  if (pwdInput.type === 'password') {
+    pwdInput.type = 'text';
+    eyeIcon.innerText = 'visibility_off';
+  } else {
+    pwdInput.type = 'password';
+    eyeIcon.innerText = 'visibility';
+  }
+}
+
+function handleSocialLogin(provider) {
+  showToast(`Signing in with ${provider}`, 'Connecting to your account securely...');
+}
+
+function handleForgotPassword() {
+  const email = document.getElementById('authEmail').value;
+  if (!email) {
+    showToast('Forgot Password', 'Please enter your email address above first.');
+    document.getElementById('authEmail').focus();
+  } else {
+    showToast('Password Reset Sent', `We sent a reset link to ${email}`);
+  }
+}
+
+function handleAuthSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('authSubmitBtn');
+  const originalHtml = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">refresh</span> Processing...';
+
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerHTML = originalHtml;
+    
+    if (currentMode === 'register') {
+      showToast('Account Created!', 'Welcome to the Penny Juice family. 🍊');
+    } else {
+      showToast('Welcome back!', 'Redirecting to your juice dashboard... 🍊');
+    }
+
+    setTimeout(() => {
+      window.location.href = 'shop.html';
+    }, 1800);
+  }, 1000);
+}
+
+function showToast(title, desc) {
+  const toast = document.getElementById('loginToast');
+  document.getElementById('toastTitle').innerText = title;
+  document.getElementById('toastDesc').innerText = desc;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 4000);
+}
+</script>
+
+<!-- UNIFIED FOOTER -->
+<footer class="bg-[#1A1A2E] text-white w-full py-16 mt-auto font-['Poppins']">
+  <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="flex flex-col gap-4">
+      <a href="index.html" class="text-2xl font-black text-[#F9A602] tracking-tight flex items-center gap-2">
+        🍊 Penny<span class="text-white">Juice</span>
+      </a>
+      <p class="text-gray-400 text-sm leading-relaxed max-w-[250px]">
+        Vibrant, health-conscious organic juices delivered fresh to your door. Taste the difference of pure nature.
+      </p>
+      <div class="flex gap-4 mt-2">
+        <a href="#" class="text-gray-400 hover:text-[#F9A602] transition-colors">
+          <span class="material-symbols-outlined">share</span>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-[#F9A602] transition-colors">
+          <span class="material-symbols-outlined">thumb_up</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Shop</h4>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="shop.html">All Juices</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="learn.html">Our Process</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="ingredients.html">Ingredients</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Company</h4>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="blog.html">Blog</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="contact.html">Contact Us</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="faq.html">FAQ</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Newsletter</h4>
+      <p class="text-gray-400 text-sm">Subscribe to get 10% off your first order!</p>
+      <div class="flex mt-2">
+        <input type="email" placeholder="Your email" class="bg-white/10 text-white px-4 py-2 rounded-l-full outline-none focus:bg-white/20 transition-colors w-full text-sm">
+        <button class="bg-gradient-to-r from-[#F9A602] to-[#FF7043] px-4 py-2 rounded-r-full font-bold text-sm hover:opacity-90 transition-opacity whitespace-nowrap text-white">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-[1280px] mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-gray-500 text-sm">© 2026 Penny Juice. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a>
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Terms of Service</a>
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Shipping Info</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

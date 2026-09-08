@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Penny Juice - Search Juices</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#F9A602",
+        "secondary": "#7CB342",
+        "dark": "#1A1A2E",
+        "surface": "#ffffff",
+        "background": "#F8FAFC"
+      },
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+<style id="pj-master-style">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+*{box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E;margin:0;padding:0;overflow-x:hidden;}
+
+/* SINGLE UNIFIED TOP NAVBAR */
+.pj-nav{position:sticky;top:0;left:0;right:0;width:100%;z-index:9999;background:#ffffff;border-bottom:1px solid #F1F5F9;box-shadow:0 2px 10px rgba(0,0,0,0.03);height:72px;display:flex;align-items:center;font-family:'Poppins',sans-serif;}
+.pj-nav .pj-inner{max-width:1280px;margin:0 auto;width:100%;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
+.pj-logo{font-size:22px;font-weight:800;color:#F9A602;text-decoration:none;display:flex;align-items:center;gap:6px;letter-spacing:-0.5px;transition:transform 0.2s;}
+.pj-logo:hover{transform:scale(1.02);}
+.pj-logo span{color:#1A1A2E;}
+.pj-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
+.pj-links a{font-size:14px;font-weight:500;color:#64748B;text-decoration:none;padding:8px 16px;border-radius:50px;transition:all 0.2s;}
+.pj-links a:hover{color:#F9A602;background:rgba(249,166,2,0.06);}
+.pj-links a.active{color:#F9A602;background:#FFF7E6;font-weight:600;}
+.pj-icons{display:flex;align-items:center;gap:8px;}
+.pj-icons a{font-size:13px;font-weight:500;color:#64748B;text-decoration:none;padding:8px;width:36px;height:36px;justify-content:center;border-radius:50px;transition:all 0.2s;display:flex;align-items:center;gap:6px;}
+.pj-icons a.pj-cart{width:auto;padding:8px 16px;}
+.pj-icons a:hover{background:#FFF7E6;color:#F9A602;}
+.pj-icons a.active{color:#F9A602;background:#FFF7E6;font-weight:600;}
+.pj-icons .pj-cart{background:linear-gradient(135deg,#F9A602,#FF7043);color:#ffffff!important;font-weight:600;box-shadow:0 4px 12px rgba(249,166,2,0.25);}
+.pj-icons .pj-cart:hover{opacity:0.92;box-shadow:0 6px 18px rgba(249,166,2,0.35);color:#ffffff!important;}
+@media(max-width:860px){.pj-links{display:none;}.pj-icons a:not(.pj-cart){display:none;}.pj-nav .pj-inner{padding:0 20px;}}
+</style>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-[#F8FAFC]">
+
+<!-- SINGLE UNIFIED NAV -->
+<nav class="pj-nav" id="pj-main-nav">
+  <div class="pj-inner">
+    <a href="index.html" class="pj-logo">🍊 Penny<span>Juice</span></a>
+    <ul class="pj-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="ingredients.html">Ingredients</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+        <div class="pj-icons">
+      <a href="search.html" title="Search"><span class="material-symbols-outlined">search</span></a>
+      <a href="login.html" title="Login"><span class="material-symbols-outlined">person</span></a>
+      <a href="cart.html" class="pj-cart" title="Cart"><span class="material-symbols-outlined">shopping_cart</span> (3)</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN SEARCH CONTENT -->
+<main class="flex-grow max-w-[1240px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 md:py-8 flex flex-col gap-10">
+
+  <!-- Breadcrumb -->
+  <div class="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
+    <a href="index.html" class="hover:text-[#F9A602] transition-colors flex items-center gap-1">
+      <span class="material-symbols-outlined text-[15px]">home</span> Home
+    </a>
+    <span class="text-gray-400">›</span>
+    <span class="text-[#1A1A2E] font-semibold">Search</span>
+  </div>
+
+  <!-- Search Hero / Discovery Section -->
+  <div class="text-center max-w-3xl mx-auto flex flex-col items-center pt-2 pb-2">
+    <!-- Flavor Discovery Badge -->
+    <div class="inline-flex items-center px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FFF7E6] text-[#F9A602] border border-[#FDE68A] mb-4 shadow-2xs">
+      FLAVOR DISCOVERY
+    </div>
+
+    <!-- Main Heading -->
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-[#1A1A2E] tracking-tight leading-tight mb-3">
+      Find Your Favorite Penny Juice
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-gray-500 text-base leading-relaxed mb-8 max-w-xl font-normal">
+      Search by fruit ingredient, flavor profile, dietary preference, or wellness benefit.
+    </p>
+
+    <!-- Search Input Bar -->
+    <div class="relative w-full max-w-2xl mb-4">
+      <span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-[#F9A602] text-2xl pointer-events-none">search</span>
+      <input id="searchInput" type="text" placeholder="Try 'Kiwi', 'Ginger', 'Citrus', 'Childcare'..." class="w-full bg-white border border-gray-200 rounded-full pl-14 pr-12 py-4 text-base text-[#1A1A2E] shadow-sm hover:shadow-md focus:shadow-md focus:border-[#F9A602] focus:outline-none transition-all placeholder:text-gray-400"/>
+      <button id="clearBtn" class="hidden absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+
+    <!-- Popular Tags Row -->
+    <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
+      <span class="text-gray-400 font-medium mr-1">Popular:</span>
+      <button class="search-tag px-3.5 py-1 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-[#F9A602] hover:text-[#F9A602] hover:bg-[#FFF7E6] transition-all shadow-2xs font-medium cursor-pointer">Kiwi</button>
+      <button class="search-tag px-3.5 py-1 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-[#F9A602] hover:text-[#F9A602] hover:bg-[#FFF7E6] transition-all shadow-2xs font-medium cursor-pointer">Pineapple</button>
+      <button class="search-tag px-3.5 py-1 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-[#F9A602] hover:text-[#F9A602] hover:bg-[#FFF7E6] transition-all shadow-2xs font-medium cursor-pointer">Green Glow</button>
+      <button class="search-tag px-3.5 py-1 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-[#F9A602] hover:text-[#F9A602] hover:bg-[#FFF7E6] transition-all shadow-2xs font-medium cursor-pointer">Turmeric</button>
+      <button class="search-tag px-3.5 py-1 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-[#F9A602] hover:text-[#F9A602] hover:bg-[#FFF7E6] transition-all shadow-2xs font-medium cursor-pointer">Ginger</button>
+      <button class="search-tag px-3.5 py-1 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-[#F9A602] hover:text-[#F9A602] hover:bg-[#FFF7E6] transition-all shadow-2xs font-medium cursor-pointer">Packs</button>
+      <button class="search-tag px-3.5 py-1 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-[#F9A602] hover:text-[#F9A602] hover:bg-[#FFF7E6] transition-all shadow-2xs font-medium cursor-pointer">Zero Added Sugar</button>
+    </div>
+  </div>
+
+  <!-- Results Section Header -->
+  <div class="flex items-center justify-between border-b border-gray-200/80 pb-4 mt-2">
+    <h2 class="text-2xl font-bold text-[#1A1A2E] tracking-tight">All Organic Juices</h2>
+    <span id="resultsCount" class="text-sm font-medium text-gray-400">8 flavors found</span>
+  </div>
+
+        <!-- 8 Organic Juices Results Grid -->
+  <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Product Card: Kiwi Vitality -->
+      <div class="product-card group relative bg-white rounded-3xl p-4 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_rgba(249,166,2,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-title="Kiwi Vitality" data-category="Green" data-tags="kiwi apple lime ginger green cold-pressed bestseller organic vitality" data-price="8.99">
+        <!-- Top Left: Add to Cart Icon Button -->
+        <button type="button" aria-label="Add Kiwi Vitality to cart" class="add-to-cart-btn absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/95 backdrop-blur shadow-md border border-slate-100 flex items-center justify-center text-[#1A1A2E] hover:bg-[#F9A602] hover:text-white hover:border-[#F9A602] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer" title="Add to Cart" onclick="event.preventDefault(); event.stopPropagation(); window.pjAddToCart && window.pjAddToCart('Kiwi Vitality');">
+          <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+        </button>
+
+        <!-- Top Right: Badge -->
+        <div class="absolute top-4 right-4 z-20">
+          <span class="inline-block bg-[#7CB342] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">Best Seller</span>
+        </div>
+
+        <!-- Card Body: Image & Details -->
+        <a href="product-detail.html" class="block focus:outline-none flex-grow">
+          <div class="relative w-full aspect-square bg-gradient-to-b from-slate-50 to-white rounded-2xl p-4 flex items-center justify-center overflow-hidden mb-4 group-hover:bg-[#FFFDF7] transition-colors">
+            <img alt="Kiwi Vitality" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" src="images/kiwi-vitality.jpeg"/>
+          </div>
+          
+          <div class="px-1 text-left">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-bold text-lg text-[#1A1A2E] group-hover:text-[#F9A602] transition-colors leading-snug">Kiwi Vitality</h3>
+              <div class="flex items-center text-[#F9A602] text-xs font-bold gap-0.5">
+                <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span>4.9</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 line-clamp-1 mb-4">Kiwi, Apple, Lime, Ginger</p>
+          </div>
+        </a>
+
+        <!-- Card Footer: Price & Buy Button -->
+        <div class="mt-auto px-1 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-gray-400 block font-semibold uppercase tracking-wider leading-none mb-1">Price</span>
+            <span class="text-xl font-extrabold text-[#1A1A2E]">$8.99</span>
+          </div>
+          <a href="product-detail.html" class="flex-1 max-w-[125px] py-2.5 px-4 bg-[#F9A602] hover:bg-[#E09400] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 active:scale-95 text-center">
+            <span>Buy</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <!-- Product Card: Pineapple Pulse -->
+      <div class="product-card group relative bg-white rounded-3xl p-4 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_rgba(249,166,2,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-title="Pineapple Pulse" data-category="Citrus" data-tags="pineapple orange turmeric coconut water citrus immunity popular tropical" data-price="8.99">
+        <!-- Top Left: Add to Cart Icon Button -->
+        <button type="button" aria-label="Add Pineapple Pulse to cart" class="add-to-cart-btn absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/95 backdrop-blur shadow-md border border-slate-100 flex items-center justify-center text-[#1A1A2E] hover:bg-[#F9A602] hover:text-white hover:border-[#F9A602] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer" title="Add to Cart" onclick="event.preventDefault(); event.stopPropagation(); window.pjAddToCart && window.pjAddToCart('Pineapple Pulse');">
+          <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+        </button>
+
+        <!-- Top Right: Badge -->
+        <div class="absolute top-4 right-4 z-20">
+          <span class="inline-block bg-[#F9A602] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">Popular</span>
+        </div>
+
+        <!-- Card Body: Image & Details -->
+        <a href="product-detail.html" class="block focus:outline-none flex-grow">
+          <div class="relative w-full aspect-square bg-gradient-to-b from-slate-50 to-white rounded-2xl p-4 flex items-center justify-center overflow-hidden mb-4 group-hover:bg-[#FFFDF7] transition-colors">
+            <img alt="Pineapple Pulse" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" src="images/pineapple-pulse.jpeg"/>
+          </div>
+          
+          <div class="px-1 text-left">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-bold text-lg text-[#1A1A2E] group-hover:text-[#F9A602] transition-colors leading-snug">Pineapple Pulse</h3>
+              <div class="flex items-center text-[#F9A602] text-xs font-bold gap-0.5">
+                <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span>4.8</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 line-clamp-1 mb-4">Pineapple, Orange, Turmeric, Coconut Water</p>
+          </div>
+        </a>
+
+        <!-- Card Footer: Price & Buy Button -->
+        <div class="mt-auto px-1 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-gray-400 block font-semibold uppercase tracking-wider leading-none mb-1">Price</span>
+            <span class="text-xl font-extrabold text-[#1A1A2E]">$8.99</span>
+          </div>
+          <a href="product-detail.html" class="flex-1 max-w-[125px] py-2.5 px-4 bg-[#F9A602] hover:bg-[#E09400] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 active:scale-95 text-center">
+            <span>Buy</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <!-- Product Card: Green Glow -->
+      <div class="product-card group relative bg-white rounded-3xl p-4 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_rgba(249,166,2,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-title="Green Glow" data-category="Green" data-tags="spinach kale green apple cucumber lemon green detox superfood glow" data-price="9.49">
+        <!-- Top Left: Add to Cart Icon Button -->
+        <button type="button" aria-label="Add Green Glow to cart" class="add-to-cart-btn absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/95 backdrop-blur shadow-md border border-slate-100 flex items-center justify-center text-[#1A1A2E] hover:bg-[#F9A602] hover:text-white hover:border-[#F9A602] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer" title="Add to Cart" onclick="event.preventDefault(); event.stopPropagation(); window.pjAddToCart && window.pjAddToCart('Green Glow');">
+          <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+        </button>
+
+        <!-- Top Right: Badge -->
+        <div class="absolute top-4 right-4 z-20">
+          <span class="inline-block bg-[#2E7D32] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">Organic</span>
+        </div>
+
+        <!-- Card Body: Image & Details -->
+        <a href="product-detail.html" class="block focus:outline-none flex-grow">
+          <div class="relative w-full aspect-square bg-gradient-to-b from-slate-50 to-white rounded-2xl p-4 flex items-center justify-center overflow-hidden mb-4 group-hover:bg-[#FFFDF7] transition-colors">
+            <img alt="Green Glow" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" src="images/green-glow.jpeg"/>
+          </div>
+          
+          <div class="px-1 text-left">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-bold text-lg text-[#1A1A2E] group-hover:text-[#F9A602] transition-colors leading-snug">Green Glow</h3>
+              <div class="flex items-center text-[#F9A602] text-xs font-bold gap-0.5">
+                <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span>4.9</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 line-clamp-1 mb-4">Spinach, Kale, Green Apple, Cucumber, Lemon</p>
+          </div>
+        </a>
+
+        <!-- Card Footer: Price & Buy Button -->
+        <div class="mt-auto px-1 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-gray-400 block font-semibold uppercase tracking-wider leading-none mb-1">Price</span>
+            <span class="text-xl font-extrabold text-[#1A1A2E]">$9.49</span>
+          </div>
+          <a href="product-detail.html" class="flex-1 max-w-[125px] py-2.5 px-4 bg-[#F9A602] hover:bg-[#E09400] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 active:scale-95 text-center">
+            <span>Buy</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <!-- Product Card: Zen Pear -->
+      <div class="product-card group relative bg-white rounded-3xl p-4 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_rgba(249,166,2,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-title="Zen Pear" data-category="Citrus" data-tags="pear ginger lemon apple refreshing calming digestive zen" data-price="8.99">
+        <!-- Top Left: Add to Cart Icon Button -->
+        <button type="button" aria-label="Add Zen Pear to cart" class="add-to-cart-btn absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/95 backdrop-blur shadow-md border border-slate-100 flex items-center justify-center text-[#1A1A2E] hover:bg-[#F9A602] hover:text-white hover:border-[#F9A602] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer" title="Add to Cart" onclick="event.preventDefault(); event.stopPropagation(); window.pjAddToCart && window.pjAddToCart('Zen Pear');">
+          <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+        </button>
+
+        <!-- Top Right: Badge -->
+        <div class="absolute top-4 right-4 z-20">
+          <span class="inline-block bg-[#8BC34A] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">Refreshing</span>
+        </div>
+
+        <!-- Card Body: Image & Details -->
+        <a href="product-detail.html" class="block focus:outline-none flex-grow">
+          <div class="relative w-full aspect-square bg-gradient-to-b from-slate-50 to-white rounded-2xl p-4 flex items-center justify-center overflow-hidden mb-4 group-hover:bg-[#FFFDF7] transition-colors">
+            <img alt="Zen Pear" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" src="images/zen-pear.jpeg"/>
+          </div>
+          
+          <div class="px-1 text-left">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-bold text-lg text-[#1A1A2E] group-hover:text-[#F9A602] transition-colors leading-snug">Zen Pear</h3>
+              <div class="flex items-center text-[#F9A602] text-xs font-bold gap-0.5">
+                <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span>4.7</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 line-clamp-1 mb-4">Pear, Ginger, Lemon, Apple</p>
+          </div>
+        </a>
+
+        <!-- Card Footer: Price & Buy Button -->
+        <div class="mt-auto px-1 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-gray-400 block font-semibold uppercase tracking-wider leading-none mb-1">Price</span>
+            <span class="text-xl font-extrabold text-[#1A1A2E]">$8.99</span>
+          </div>
+          <a href="product-detail.html" class="flex-1 max-w-[125px] py-2.5 px-4 bg-[#F9A602] hover:bg-[#E09400] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 active:scale-95 text-center">
+            <span>Buy</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <!-- Product Card: Golden Aura -->
+      <div class="product-card group relative bg-white rounded-3xl p-4 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_rgba(249,166,2,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-title="Golden Aura" data-category="Citrus" data-tags="carrot orange turmeric pineapple citrus glow vitamin c aura golden" data-price="8.49">
+        <!-- Top Left: Add to Cart Icon Button -->
+        <button type="button" aria-label="Add Golden Aura to cart" class="add-to-cart-btn absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/95 backdrop-blur shadow-md border border-slate-100 flex items-center justify-center text-[#1A1A2E] hover:bg-[#F9A602] hover:text-white hover:border-[#F9A602] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer" title="Add to Cart" onclick="event.preventDefault(); event.stopPropagation(); window.pjAddToCart && window.pjAddToCart('Golden Aura');">
+          <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+        </button>
+
+        <!-- Top Right: Badge -->
+        <div class="absolute top-4 right-4 z-20">
+          <span class="inline-block bg-[#FF9800] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">Bestseller</span>
+        </div>
+
+        <!-- Card Body: Image & Details -->
+        <a href="product-detail.html" class="block focus:outline-none flex-grow">
+          <div class="relative w-full aspect-square bg-gradient-to-b from-slate-50 to-white rounded-2xl p-4 flex items-center justify-center overflow-hidden mb-4 group-hover:bg-[#FFFDF7] transition-colors">
+            <img alt="Golden Aura" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" src="images/golden-aura.jpeg"/>
+          </div>
+          
+          <div class="px-1 text-left">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-bold text-lg text-[#1A1A2E] group-hover:text-[#F9A602] transition-colors leading-snug">Golden Aura</h3>
+              <div class="flex items-center text-[#F9A602] text-xs font-bold gap-0.5">
+                <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span>4.8</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 line-clamp-1 mb-4">Carrot, Orange, Turmeric, Pineapple</p>
+          </div>
+        </a>
+
+        <!-- Card Footer: Price & Buy Button -->
+        <div class="mt-auto px-1 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-gray-400 block font-semibold uppercase tracking-wider leading-none mb-1">Price</span>
+            <span class="text-xl font-extrabold text-[#1A1A2E]">$8.49</span>
+          </div>
+          <a href="product-detail.html" class="flex-1 max-w-[125px] py-2.5 px-4 bg-[#F9A602] hover:bg-[#E09400] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 active:scale-95 text-center">
+            <span>Buy</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <!-- Product Card: Lemon Lift -->
+      <div class="product-card group relative bg-white rounded-3xl p-4 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_rgba(249,166,2,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-title="Lemon Lift" data-category="Citrus" data-tags="lemon ginger honey apple energy boost citrus immunity lift" data-price="7.99">
+        <!-- Top Left: Add to Cart Icon Button -->
+        <button type="button" aria-label="Add Lemon Lift to cart" class="add-to-cart-btn absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/95 backdrop-blur shadow-md border border-slate-100 flex items-center justify-center text-[#1A1A2E] hover:bg-[#F9A602] hover:text-white hover:border-[#F9A602] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer" title="Add to Cart" onclick="event.preventDefault(); event.stopPropagation(); window.pjAddToCart && window.pjAddToCart('Lemon Lift');">
+          <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+        </button>
+
+        <!-- Top Right: Badge -->
+        <div class="absolute top-4 right-4 z-20">
+          <span class="inline-block bg-[#FBC02D] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">Customer Fav</span>
+        </div>
+
+        <!-- Card Body: Image & Details -->
+        <a href="product-detail.html" class="block focus:outline-none flex-grow">
+          <div class="relative w-full aspect-square bg-gradient-to-b from-slate-50 to-white rounded-2xl p-4 flex items-center justify-center overflow-hidden mb-4 group-hover:bg-[#FFFDF7] transition-colors">
+            <img alt="Lemon Lift" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" src="images/lemon-lift.jpeg"/>
+          </div>
+          
+          <div class="px-1 text-left">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-bold text-lg text-[#1A1A2E] group-hover:text-[#F9A602] transition-colors leading-snug">Lemon Lift</h3>
+              <div class="flex items-center text-[#F9A602] text-xs font-bold gap-0.5">
+                <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span>4.9</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 line-clamp-1 mb-4">Lemon, Ginger, Honey, Apple</p>
+          </div>
+        </a>
+
+        <!-- Card Footer: Price & Buy Button -->
+        <div class="mt-auto px-1 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-gray-400 block font-semibold uppercase tracking-wider leading-none mb-1">Price</span>
+            <span class="text-xl font-extrabold text-[#1A1A2E]">$7.99</span>
+          </div>
+          <a href="product-detail.html" class="flex-1 max-w-[125px] py-2.5 px-4 bg-[#F9A602] hover:bg-[#E09400] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 active:scale-95 text-center">
+            <span>Buy</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <!-- Product Card: Tropical Harmony -->
+      <div class="product-card group relative bg-white rounded-3xl p-4 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_rgba(249,166,2,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-title="Tropical Harmony" data-category="Tropical" data-tags="mango passion fruit pineapple coconut tropical exotic sweet harmony" data-price="9.99">
+        <!-- Top Left: Add to Cart Icon Button -->
+        <button type="button" aria-label="Add Tropical Harmony to cart" class="add-to-cart-btn absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/95 backdrop-blur shadow-md border border-slate-100 flex items-center justify-center text-[#1A1A2E] hover:bg-[#F9A602] hover:text-white hover:border-[#F9A602] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer" title="Add to Cart" onclick="event.preventDefault(); event.stopPropagation(); window.pjAddToCart && window.pjAddToCart('Tropical Harmony');">
+          <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+        </button>
+
+        <!-- Top Right: Badge -->
+        <div class="absolute top-4 right-4 z-20">
+          <span class="inline-block bg-[#FF5722] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">Tropical</span>
+        </div>
+
+        <!-- Card Body: Image & Details -->
+        <a href="product-detail.html" class="block focus:outline-none flex-grow">
+          <div class="relative w-full aspect-square bg-gradient-to-b from-slate-50 to-white rounded-2xl p-4 flex items-center justify-center overflow-hidden mb-4 group-hover:bg-[#FFFDF7] transition-colors">
+            <img alt="Tropical Harmony" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" src="images/tropical-harmony.jpeg"/>
+          </div>
+          
+          <div class="px-1 text-left">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-bold text-lg text-[#1A1A2E] group-hover:text-[#F9A602] transition-colors leading-snug">Tropical Harmony</h3>
+              <div class="flex items-center text-[#F9A602] text-xs font-bold gap-0.5">
+                <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span>5.0</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 line-clamp-1 mb-4">Mango, Passion Fruit, Pineapple, Coconut</p>
+          </div>
+        </a>
+
+        <!-- Card Footer: Price & Buy Button -->
+        <div class="mt-auto px-1 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-gray-400 block font-semibold uppercase tracking-wider leading-none mb-1">Price</span>
+            <span class="text-xl font-extrabold text-[#1A1A2E]">$9.99</span>
+          </div>
+          <a href="product-detail.html" class="flex-1 max-w-[125px] py-2.5 px-4 bg-[#F9A602] hover:bg-[#E09400] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 active:scale-95 text-center">
+            <span>Buy</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <!-- Product Card: Emerald Energy -->
+      <div class="product-card group relative bg-white rounded-3xl p-4 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_rgba(249,166,2,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-title="Emerald Energy" data-category="Green" data-tags="celery green apple spinach lime green cleanse vitality emerald energy" data-price="8.99">
+        <!-- Top Left: Add to Cart Icon Button -->
+        <button type="button" aria-label="Add Emerald Energy to cart" class="add-to-cart-btn absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/95 backdrop-blur shadow-md border border-slate-100 flex items-center justify-center text-[#1A1A2E] hover:bg-[#F9A602] hover:text-white hover:border-[#F9A602] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer" title="Add to Cart" onclick="event.preventDefault(); event.stopPropagation(); window.pjAddToCart && window.pjAddToCart('Emerald Energy');">
+          <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+        </button>
+
+        <!-- Top Right: Badge -->
+        <div class="absolute top-4 right-4 z-20">
+          <span class="inline-block bg-[#00897B] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">Vitality</span>
+        </div>
+
+        <!-- Card Body: Image & Details -->
+        <a href="product-detail.html" class="block focus:outline-none flex-grow">
+          <div class="relative w-full aspect-square bg-gradient-to-b from-slate-50 to-white rounded-2xl p-4 flex items-center justify-center overflow-hidden mb-4 group-hover:bg-[#FFFDF7] transition-colors">
+            <img alt="Emerald Energy" class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" src="images/emerald-energy.jpeg"/>
+          </div>
+          
+          <div class="px-1 text-left">
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-bold text-lg text-[#1A1A2E] group-hover:text-[#F9A602] transition-colors leading-snug">Emerald Energy</h3>
+              <div class="flex items-center text-[#F9A602] text-xs font-bold gap-0.5">
+                <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span>4.8</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 line-clamp-1 mb-4">Celery, Green Apple, Spinach, Lime</p>
+          </div>
+        </a>
+
+        <!-- Card Footer: Price & Buy Button -->
+        <div class="mt-auto px-1 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-gray-400 block font-semibold uppercase tracking-wider leading-none mb-1">Price</span>
+            <span class="text-xl font-extrabold text-[#1A1A2E]">$8.99</span>
+          </div>
+          <a href="product-detail.html" class="flex-1 max-w-[125px] py-2.5 px-4 bg-[#F9A602] hover:bg-[#E09400] text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 active:scale-95 text-center">
+            <span>Buy</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+  </div>
+
+  <!-- Empty State (Hidden by default) -->
+  <div id="noResults" class="hidden text-center py-16">
+    <div class="w-16 h-16 rounded-full bg-orange-50 text-[#F9A602] mx-auto flex items-center justify-center text-3xl mb-4">
+      🔍
+    </div>
+    <h3 class="text-xl font-bold text-[#1A1A2E] mb-2">No juices found</h3>
+    <p class="text-gray-500 text-sm max-w-md mx-auto mb-6">We couldn't find any juice matching your search. Try searching for "Kiwi", "Turmeric", "Green", or "Packs".</p>
+    <button id="resetSearch" class="bg-[#F9A602] hover:bg-[#E8970A] text-white font-bold px-6 py-2.5 rounded-full text-sm transition-colors shadow-sm">
+      Show All 8 Juices
+    </button>
+  </div>
+
+</main>
+
+<!-- UNIFIED FOOTER -->
+<footer class="bg-[#1A1A2E] text-white w-full py-16 mt-auto font-['Poppins']">
+  <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="flex flex-col gap-4">
+      <a href="index.html" class="text-2xl font-black text-[#F9A602] tracking-tight flex items-center gap-2">
+        🍊 Penny<span class="text-white">Juice</span>
+      </a>
+      <p class="text-gray-400 text-sm leading-relaxed max-w-[250px]">
+        Vibrant, health-conscious organic juices delivered fresh to your door. Taste the difference of pure nature.
+      </p>
+      <div class="flex gap-4 mt-2">
+        <a href="#" class="text-gray-400 hover:text-[#F9A602] transition-colors">
+          <span class="material-symbols-outlined">share</span>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-[#F9A602] transition-colors">
+          <span class="material-symbols-outlined">thumb_up</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Shop</h4>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="shop.html">All Juices</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="learn.html">Our Process</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="ingredients.html">Ingredients</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Company</h4>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="blog.html">Blog</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="contact.html">Contact Us</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="faq.html">FAQ</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Newsletter</h4>
+      <p class="text-gray-400 text-sm">Subscribe to get 10% off your first order!</p>
+      <div class="flex mt-2">
+        <input type="email" placeholder="Your email" class="bg-white/10 text-white px-4 py-2 rounded-l-full outline-none focus:bg-white/20 transition-colors w-full text-sm"/>
+        <button class="bg-gradient-to-r from-[#F9A602] to-[#FF7043] px-4 py-2 rounded-r-full font-bold text-sm hover:opacity-90 transition-opacity whitespace-nowrap text-white">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-[1280px] mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-gray-500 text-sm">© 2026 Penny Juice. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a>
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Terms of Service</a>
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Shipping Info</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Interactive Search Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearBtn');
+  const tags = document.querySelectorAll('.search-tag');
+  const cards = document.querySelectorAll('.product-card');
+  const resultsCount = document.getElementById('resultsCount');
+  const noResults = document.getElementById('noResults');
+  const resetSearch = document.getElementById('resetSearch');
+
+  function filterJuices(query) {
+    const q = query.trim().toLowerCase();
+    let count = 0;
+
+    if (q.length > 0) {
+      clearBtn.classList.remove('hidden');
+    } else {
+      clearBtn.classList.add('hidden');
+    }
+
+    cards.forEach(card => {
+      const title = card.getAttribute('data-title').toLowerCase();
+      const tags = card.getAttribute('data-tags').toLowerCase();
+      if (!q || title.includes(q) || tags.includes(q)) {
+        card.classList.remove('hidden');
+        count++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    resultsCount.textContent = `${count} flavor${count === 1 ? '' : 's'} found`;
+
+    if (count === 0) {
+      noResults.classList.remove('hidden');
+    } else {
+      noResults.classList.add('hidden');
+    }
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    filterJuices(e.target.value);
+  });
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    filterJuices('');
+    searchInput.focus();
+  });
+
+  if (resetSearch) {
+    resetSearch.addEventListener('click', () => {
+      searchInput.value = '';
+      filterJuices('');
+      searchInput.focus();
+    });
+  }
+
+  tags.forEach(tag => {
+    tag.addEventListener('click', () => {
+      const tagText = tag.textContent.trim();
+      searchInput.value = tagText;
+      filterJuices(tagText);
+      searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+});
+</script>
+
+</body>
+</html>

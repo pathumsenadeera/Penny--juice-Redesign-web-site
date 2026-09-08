@@ -1,0 +1,362 @@
+import filecmp
+
+contact_site = r'd:\ICT\UX\Penny-Juice\site\public\contact.html'
+contact_stitch = r'd:\ICT\UX\Penny-Juice\.stitch\designs\contact.html'
+
+simplified_contact_html = """<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us - Penny Juice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#F9A602",
+        "primary-container": "#F9A602",
+        "secondary": "#7CB342",
+        "secondary-container": "#7CB342",
+        "background": "#F8FAFC",
+        "on-background": "#1A1A2E",
+        "surface": "#ffffff",
+        "surface-variant": "#f1f5f9",
+        "on-surface-variant": "#64748B"
+      }
+    }
+  }
+}
+</script>
+<style id="pj-master-style">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E;margin:0;padding:0;overflow-x:hidden;}
+
+/* SINGLE UNIFIED TOP NAVBAR */
+.pj-nav{position:sticky;top:0;left:0;right:0;width:100%;z-index:9999;background:#ffffff;border-bottom:1px solid #F1F5F9;box-shadow:0 2px 10px rgba(0,0,0,0.03);height:72px;display:flex;align-items:center;font-family:'Poppins',sans-serif;}
+.pj-nav .pj-inner{max-width:1280px;margin:0 auto;width:100%;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
+.pj-logo{font-size:22px;font-weight:800;color:#F9A602;text-decoration:none;display:flex;align-items:center;gap:6px;letter-spacing:-0.5px;transition:transform 0.2s;}
+.pj-logo:hover{transform:scale(1.02);}
+.pj-logo span{color:#1A1A2E;}
+.pj-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
+.pj-links a{font-size:14px;font-weight:500;color:#64748B;text-decoration:none;padding:8px 16px;border-radius:50px;transition:all 0.2s;}
+.pj-links a:hover{color:#F9A602;background:rgba(249,166,2,0.06);}
+.pj-links a.active{color:#F9A602;background:#FFF7E6;font-weight:600;}
+.pj-icons{display:flex;align-items:center;gap:8px;}
+.pj-icons a{font-size:13px;font-weight:500;color:#64748B;text-decoration:none;padding:8px;width:36px;height:36px;justify-content:center;border-radius:50px;transition:all 0.2s;display:flex;align-items:center;gap:6px;}
+.pj-icons a.pj-cart{width:auto;padding:8px 16px;}
+.pj-icons a:hover{background:#FFF7E6;color:#F9A602;}
+.pj-icons a.active{color:#F9A602;background:#FFF7E6;font-weight:600;}
+.pj-icons .pj-cart{background:linear-gradient(135deg,#F9A602,#FF7043);color:#ffffff!important;font-weight:600;box-shadow:0 4px 12px rgba(249,166,2,0.25);}
+.pj-icons .pj-cart:hover{opacity:0.92;box-shadow:0 6px 18px rgba(249,166,2,0.35);color:#ffffff!important;}
+@media(max-width:860px){.pj-links{display:none;}.pj-icons a:not(.pj-cart){display:none;}.pj-nav .pj-inner{padding:0 20px;}}
+
+/* 100% FULL-WIDTH COVER BANNER */
+.pj-hero-banner{position:relative;width:100%;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:60px 24px;box-sizing:border-box;margin:0;left:0;right:0;}
+.pj-hero-banner .pj-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;}
+.pj-hero-banner .pj-hero-overlay{position:absolute;inset:0;z-index:1;}
+.pj-hero-banner .pj-hero-content{position:relative;z-index:2;max-width:760px;margin:0 auto;text-align:center;}
+.pj-hero-banner .pj-hero-breadcrumb{font-size:12px;font-weight:700;letter-spacing:0.12em;color:#FFE082;margin:0 0 10px;text-transform:uppercase;display:inline-block;}
+.pj-hero-banner h1{font-size:clamp(30px,4.5vw,48px);font-weight:800;color:#ffffff;line-height:1.15;margin:0 0 12px;text-shadow:0 3px 20px rgba(0,0,0,0.35);letter-spacing:-0.5px;}
+.pj-hero-banner p{font-size:16px;color:rgba(255,255,255,0.95);max-width:560px;margin:0 auto;line-height:1.6;text-shadow:0 2px 10px rgba(0,0,0,0.25);}
+
+/* TOAST NOTIFICATION */
+#contactToast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 10000;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#contactToast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+</style>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-[#F8FAFC]">
+
+<!-- SINGLE UNIFIED TOP NAVBAR -->
+<nav class="pj-nav" id="pj-main-nav">
+  <div class="pj-inner">
+    <a href="index.html" class="pj-logo">🍊 Penny<span>Juice</span></a>
+    <ul class="pj-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="learn.html">Learn</a></li>
+      <li><a href="ingredients.html">Ingredients</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <div class="pj-icons">
+      <a href="search.html" title="Search"><span class="material-symbols-outlined">search</span></a>
+      <a href="login.html" title="Login"><span class="material-symbols-outlined">person</span></a>
+      <a href="cart.html" class="pj-cart" title="Cart"><span class="material-symbols-outlined">shopping_cart</span> (3)</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 100% FULL-WIDTH COVER BANNER -->
+<div class="pj-hero-banner">
+  <div class="pj-hero-bg" style="background-image:url('images/contact-lounge.jpg');"></div>
+  <div class="pj-hero-overlay" style="background:linear-gradient(135deg, rgba(26,26,46,0.85) 0%, rgba(249,166,2,0.78) 100%);"></div>
+  <div class="pj-hero-content">
+    <span class="pj-hero-breadcrumb">HOME › CONTACT US</span>
+    <h1>Get in Touch</h1>
+    <p>We'd love to hear from you. Have a question about our cold-pressed juices, order status, or just want to say hello? Send us a quick message!</p>
+  </div>
+</div>
+
+<main class="flex-grow max-w-[1140px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
+
+  <!-- 3 SIMPLE CONTACT CHANNELS -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    
+    <!-- Channel 1: Email -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] text-center hover:shadow-[0_8px_25px_rgba(249,166,2,0.1)] transition-all">
+      <div class="w-12 h-12 rounded-full bg-amber-50 text-[#F9A602] flex items-center justify-center mx-auto mb-3">
+        <span class="material-symbols-outlined text-2xl">mail</span>
+      </div>
+      <h3 class="font-bold text-base text-[#1A1A2E] mb-1">Email Us</h3>
+      <p class="text-xs text-slate-500 mb-2">Our team responds within 24 hours.</p>
+      <a href="mailto:hello@pennyjuice.com" class="text-sm font-semibold text-[#F9A602] hover:underline">hello@pennyjuice.com</a>
+    </div>
+
+    <!-- Channel 2: Phone -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] text-center hover:shadow-[0_8px_25px_rgba(124,179,66,0.1)] transition-all">
+      <div class="w-12 h-12 rounded-full bg-emerald-50 text-[#7CB342] flex items-center justify-center mx-auto mb-3">
+        <span class="material-symbols-outlined text-2xl">call</span>
+      </div>
+      <h3 class="font-bold text-base text-[#1A1A2E] mb-1">Call Us</h3>
+      <p class="text-xs text-slate-500 mb-2">Monday – Friday, 9am – 6pm PST</p>
+      <a href="tel:7025550123" class="text-sm font-semibold text-[#7CB342] hover:underline">(702) 555-0123</a>
+    </div>
+
+    <!-- Channel 3: Location -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] text-center hover:shadow-[0_8px_25px_rgba(255,112,67,0.1)] transition-all">
+      <div class="w-12 h-12 rounded-full bg-orange-50 text-[#FF7043] flex items-center justify-center mx-auto mb-3">
+        <span class="material-symbols-outlined text-2xl">location_on</span>
+      </div>
+      <h3 class="font-bold text-base text-[#1A1A2E] mb-1">Visit Us</h3>
+      <p class="text-xs text-slate-500 mb-2">Flagship Tasting Lounge</p>
+      <p class="text-sm font-semibold text-[#1A1A2E]">123 Wellness Ave, Las Vegas, NV</p>
+    </div>
+
+  </div>
+
+  <!-- SIMPLE & BEAUTIFUL 2-COLUMN SECTION: FORM + STORE INFO -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-14">
+    
+    <!-- Simple Form (7 cols) -->
+    <div class="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-slate-100 shadow-[0_4px_24px_rgba(26,26,46,0.05)]">
+      <div class="mb-6">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#F9A602]">Drop Us A Note</span>
+        <h2 class="text-2xl font-extrabold text-[#1A1A2E] mt-1">Send a Message</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Fill out the simple form below and we will get back to you shortly.</p>
+      </div>
+
+      <form id="simpleContactForm" onsubmit="handleSimpleSubmit(event)" class="space-y-4">
+        
+        <!-- Name -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="senderName">Your Name</label>
+          <input required class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:border-[#F9A602] focus:ring-2 focus:ring-[#F9A602]/20 focus:outline-none transition-all" id="senderName" placeholder="Enter your full name" type="text"/>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="senderEmail">Your Email</label>
+          <input required class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:border-[#F9A602] focus:ring-2 focus:ring-[#F9A602]/20 focus:outline-none transition-all" id="senderEmail" placeholder="yourname@example.com" type="email"/>
+        </div>
+
+        <!-- Subject -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="senderSubject">Subject</label>
+          <input class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:border-[#F9A602] focus:ring-2 focus:ring-[#F9A602]/20 focus:outline-none transition-all" id="senderSubject" placeholder="What is this regarding?" type="text"/>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5" for="senderMessage">Message</label>
+          <textarea required rows="4" class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl p-4 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:border-[#F9A602] focus:ring-2 focus:ring-[#F9A602]/20 focus:outline-none transition-all resize-none" id="senderMessage" placeholder="How can we help you?"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button id="sendBtn" type="submit" class="w-full bg-gradient-to-r from-[#F9A602] to-[#FF7043] text-white font-bold py-3.5 rounded-full shadow-[0_4px_16px_rgba(249,166,2,0.3)] hover:shadow-[0_6px_20px_rgba(249,166,2,0.4)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-2 text-sm tracking-wide">
+          <span class="material-symbols-outlined text-lg">send</span> Send Message
+        </button>
+
+        <p class="text-center text-[11px] text-slate-400 pt-1">
+          🔒 We value your privacy. Your information is never shared.
+        </p>
+      </form>
+    </div>
+
+    <!-- Store & Tasting Lounge Card (5 cols) -->
+    <div class="lg:col-span-5 bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-[0_4px_24px_rgba(26,26,46,0.05)]">
+      <div class="relative h-56">
+        <img src="images/contact-flagship.jpg" alt="Penny Juice Tasting Lounge" class="w-full h-full object-cover"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-4 left-5 right-5 text-white">
+          <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider block">Visit Our Tasting Bar</span>
+          <h3 class="text-lg font-bold">Las Vegas Juicery Lounge</h3>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-7 space-y-4">
+        <div class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[#7CB342] text-xl mt-0.5">place</span>
+          <div>
+            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Address</h4>
+            <p class="text-xs sm:text-sm font-semibold text-[#1A1A2E]">123 Wellness Ave, Suite 100</p>
+            <p class="text-xs text-slate-500">Downtown Arts District, Las Vegas, NV 89101</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-[#F9A602] text-xl mt-0.5">schedule</span>
+          <div>
+            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Hours of Operation</h4>
+            <p class="text-xs text-slate-700"><strong>Mon – Fri:</strong> 8:00 AM – 7:00 PM</p>
+            <p class="text-xs text-slate-700"><strong>Sat – Sun:</strong> 9:00 AM – 5:00 PM</p>
+          </div>
+        </div>
+
+        <div class="p-3.5 bg-amber-50/70 rounded-xl border border-amber-100 flex items-center gap-3">
+          <span class="text-lg">🍹</span>
+          <p class="text-xs text-slate-600">
+            <strong>Complimentary Tastings:</strong> Enjoy daily sample flights of our cold-pressed juices from 2PM–4PM!
+          </p>
+        </div>
+
+        <div class="pt-2 flex gap-3">
+          <a href="https://maps.google.com" target="_blank" class="flex-1 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors">
+            <span class="material-symbols-outlined text-sm text-[#F9A602]">directions</span> Get Directions
+          </a>
+          <a href="tel:7025550123" class="flex-1 py-2.5 rounded-xl bg-[#FFF7E6] hover:bg-[#FFECC7] text-[#F9A602] text-xs font-bold flex items-center justify-center gap-1.5 transition-colors">
+            <span class="material-symbols-outlined text-sm">call</span> Call Store
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- QUICK FAQ CALLOUT -->
+  <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 text-center border border-slate-100">
+    <h3 class="text-base sm:text-lg font-bold text-[#1A1A2E] mb-1">Looking for Immediate Answers?</h3>
+    <p class="text-xs sm:text-sm text-slate-500 mb-4 max-w-lg mx-auto">Check out our frequently asked questions for quick answers on shipping, ingredients, and storage.</p>
+    <a href="faq.html" class="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#7CB342] hover:bg-[#689f38] text-white text-xs font-bold shadow-sm transition-all">
+      Browse FAQ Page <span class="material-symbols-outlined text-sm">arrow_forward</span>
+    </a>
+  </div>
+
+</main>
+
+<!-- TOAST CONFIRMATION -->
+<div id="contactToast" class="bg-[#1A1A2E] text-white px-6 py-4 rounded-2xl shadow-2xl border border-white/20 flex items-center gap-3">
+  <span class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-sm">✓</span>
+  <div>
+    <h4 class="font-bold text-sm text-white">Message Sent!</h4>
+    <p class="text-xs text-slate-300">Thank you for reaching out. We will get back to you shortly.</p>
+  </div>
+</div>
+
+<script>
+function handleSimpleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('sendBtn');
+  const originalHtml = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">refresh</span> Sending...';
+
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerHTML = originalHtml;
+    
+    // Show toast
+    const toast = document.getElementById('contactToast');
+    toast.classList.add('show');
+    
+    // Reset form
+    document.getElementById('simpleContactForm').reset();
+
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4000);
+  }, 800);
+}
+</script>
+
+<!-- UNIFIED FOOTER -->
+<footer class="bg-[#1A1A2E] text-white w-full py-16 mt-auto font-['Poppins']">
+  <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="flex flex-col gap-4">
+      <a href="index.html" class="text-2xl font-black text-[#F9A602] tracking-tight flex items-center gap-2">
+        🍊 Penny<span class="text-white">Juice</span>
+      </a>
+      <p class="text-gray-400 text-sm leading-relaxed max-w-[250px]">
+        Vibrant, health-conscious organic juices delivered fresh to your door. Taste the difference of pure nature.
+      </p>
+      <div class="flex gap-4 mt-2">
+        <a href="#" class="text-gray-400 hover:text-[#F9A602] transition-colors">
+          <span class="material-symbols-outlined">share</span>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-[#F9A602] transition-colors">
+          <span class="material-symbols-outlined">thumb_up</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Shop</h4>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="shop.html">All Juices</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="learn.html">Our Process</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="ingredients.html">Ingredients</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Company</h4>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="blog.html">Blog</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="contact.html">Contact Us</a>
+      <a class="text-gray-400 hover:text-[#F9A602] transition-colors text-sm" href="faq.html">FAQ</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="font-bold text-lg mb-2 text-white">Newsletter</h4>
+      <p class="text-gray-400 text-sm">Subscribe to get 10% off your first order!</p>
+      <div class="flex mt-2">
+        <input type="email" placeholder="Your email" class="bg-white/10 text-white px-4 py-2 rounded-l-full outline-none focus:bg-white/20 transition-colors w-full text-sm">
+        <button class="bg-gradient-to-r from-[#F9A602] to-[#FF7043] px-4 py-2 rounded-r-full font-bold text-sm hover:opacity-90 transition-opacity whitespace-nowrap text-white">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-[1280px] mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-gray-500 text-sm">© 2026 Penny Juice. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a>
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Terms of Service</a>
+      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Shipping Info</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+"""
+
+# Write to both locations
+with open(contact_site, 'w', encoding='utf-8') as f:
+    f.write(simplified_contact_html)
+
+with open(contact_stitch, 'w', encoding='utf-8') as f:
+    f.write(simplified_contact_html)
+
+print("Contact files equal:", filecmp.cmp(contact_site, contact_stitch))
+print("Successfully simplified contact.html across site and stitch!")
