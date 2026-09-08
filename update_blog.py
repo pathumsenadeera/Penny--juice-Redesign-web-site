@@ -3,16 +3,7 @@ import re
 BLOG_MAIN = '''<main class="flex-grow w-full py-10">
   <div class="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
 
-    <!-- CATEGORY FILTER PILLS -->
-    <div class="flex items-center gap-3 overflow-x-auto no-scrollbar pb-6 mb-8 border-b border-slate-200/60">
-      <button class="px-6 py-2.5 rounded-full bg-[#1A1A2E] text-white font-bold text-xs uppercase tracking-wider shadow-sm hover:bg-[#F9A602] transition-colors whitespace-nowrap">All Stories</button>
-      <button class="px-5 py-2.5 rounded-full bg-white text-gray-600 hover:text-[#F9A602] hover:bg-[#FFF7E6] font-bold text-xs uppercase tracking-wider transition-colors border border-slate-200/80 whitespace-nowrap">Superfoods</button>
-      <button class="px-5 py-2.5 rounded-full bg-white text-gray-600 hover:text-[#F9A602] hover:bg-[#FFF7E6] font-bold text-xs uppercase tracking-wider transition-colors border border-slate-200/80 whitespace-nowrap">Nutrition Science</button>
-      <button class="px-5 py-2.5 rounded-full bg-white text-gray-600 hover:text-[#F9A602] hover:bg-[#FFF7E6] font-bold text-xs uppercase tracking-wider transition-colors border border-slate-200/80 whitespace-nowrap">Mind & Mood</button>
-      <button class="px-5 py-2.5 rounded-full bg-white text-gray-600 hover:text-[#F9A602] hover:bg-[#FFF7E6] font-bold text-xs uppercase tracking-wider transition-colors border border-slate-200/80 whitespace-nowrap">Farm Sourcing</button>
-    </div>
-
-    <!-- FEATURED HERO STORY: POWER DUO (KIWIS & PINEAPPLES) -->
+<!-- FEATURED HERO STORY: POWER DUO (KIWIS & PINEAPPLES) -->
     <article class="bg-white rounded-[36px] border border-slate-100 shadow-[0_15px_45px_rgba(0,0,0,0.06)] overflow-hidden mb-16 group hover:shadow-[0_25px_60px_rgba(249,166,2,0.15)] transition-all duration-500">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
         

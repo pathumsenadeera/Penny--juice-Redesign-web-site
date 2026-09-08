@@ -160,35 +160,6 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
 </div>
 
 <main class="flex-grow max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col gap-8">
-<!-- Filter & Sort Bar (Sticky) -->
-<div class="sticky top-20 z-40 bg-surface shadow-soft rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4 border border-outline-variant/30">
-<div class="flex flex-wrap gap-2 items-center justify-center md:justify-start">
-<button class="filter-btn font-label-sm text-label-sm px-4 py-2 rounded-full bg-primary-container text-on-primary transition-colors shadow-sm">All</button>
-<button class="filter-btn font-label-sm text-label-sm px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant transition-colors border border-outline-variant/20">Green</button>
-<button class="filter-btn font-label-sm text-label-sm px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant transition-colors border border-outline-variant/20">Citrus</button>
-<button class="filter-btn font-label-sm text-label-sm px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant transition-colors border border-outline-variant/20">Tropical</button>
-
-</div>
-<div class="flex items-center gap-4">
-<div class="relative">
-<select class="appearance-none bg-surface-container-high border border-outline-variant/30 text-on-surface font-label-sm text-label-sm rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent cursor-pointer">
-<option>Sort by: Featured</option>
-<option>Price: Low to High</option>
-<option>Price: High to Low</option>
-<option>Newest</option>
-</select>
-<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary text-sm">expand_more</span>
-</div>
-<div class="flex bg-surface-container-high rounded-full p-1 border border-outline-variant/30">
-<button class="p-1 rounded-full bg-surface shadow-sm text-primary-container">
-<span class="material-symbols-outlined text-sm block">grid_view</span>
-</button>
-<button class="p-1 rounded-full text-on-surface-variant hover:text-primary-container transition-colors">
-<span class="material-symbols-outlined text-sm block">view_list</span>
-</button>
-</div>
-</div>
-</div>
 <!-- Products Grid -->
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-12">
       <!-- Product Card: Kiwi Vitality -->
@@ -582,61 +553,8 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
       </div>
     </div>
   </div>
-  <div class="max-w-[1280px] mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-    <p class="text-gray-500 text-sm">© 2026 Penny Juice. All rights reserved.</p>
-    <div class="flex gap-6">
-      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a>
-      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Terms of Service</a>
-      <a class="text-gray-500 hover:text-white transition-colors text-sm" href="#">Shipping Info</a>
-    </div>
-  </div>
 </footer>
 
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = Array.from(document.querySelectorAll('.product-card'));
-  const grid = document.querySelector('.grid.grid-cols-1');
-  const sortSelect = document.querySelector('select');
-
-  function applyFilter(category) {
-    cards.forEach(card => {
-      const cardCat = card.getAttribute('data-category');
-      if (category === 'All' || cardCat === category) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => {
-        b.className = 'filter-btn font-label-sm text-label-sm px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant transition-colors border border-outline-variant/20';
-      });
-      btn.className = 'filter-btn font-label-sm text-label-sm px-4 py-2 rounded-full bg-primary-container text-on-primary transition-colors shadow-sm';
-      applyFilter(btn.textContent.trim());
-    });
-  });
-
-  if (sortSelect && grid) {
-    sortSelect.addEventListener('change', () => {
-      const val = sortSelect.value;
-      const sorted = [...cards];
-      if (val.includes('Low to High')) {
-        sorted.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
-      } else if (val.includes('High to Low')) {
-        sorted.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
-      } else {
-        sorted.sort((a, b) => a.dataset.title.localeCompare(b.dataset.title));
-      }
-      sorted.forEach(c => grid.appendChild(c));
-    });
-  }
-});
-</script>
 
 </body>
 </html>
