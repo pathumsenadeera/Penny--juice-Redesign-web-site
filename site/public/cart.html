@@ -310,7 +310,7 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
 
 <script>
 // INITIAL CART STATE WITH OUR REAL FLAVORS & IMAGES
-let cart = [
+const defaultCartItems = [
   {
     id: 'kiwi-vitality',
     title: 'Kiwi Vitality',
@@ -339,6 +339,23 @@ let cart = [
     badge: 'Immunity Boost'
   }
 ];
+
+let cart = [];
+try {
+  const saved = localStorage.getItem('pjCart');
+  if (saved) {
+    const parsed = JSON.parse(saved);
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      cart = parsed;
+    } else {
+      cart = [...defaultCartItems];
+    }
+  } else {
+    cart = [...defaultCartItems];
+  }
+} catch(e) {
+  cart = [...defaultCartItems];
+}
 
 let discountRate = 0.10; // 10% Member discount by default
 let appliedPromoCode = 'FRESH10';
@@ -498,6 +515,8 @@ function updateTotals() {
     shippingBadge.className = 'text-xs font-bold text-slate-700';
   }
 
+  // Persist cart
+  localStorage.setItem('pjCart', JSON.stringify(cart));
 }
 
 function applyPromoCode() {
@@ -536,7 +555,11 @@ function handleCheckout() {
     showToast('Cart is Empty', 'Please add some juices before checking out.');
     return;
   }
-  showToast('Connecting to Secure Checkout', 'Packaging your cold-pressed box... ❄️');
+  showToast('Connecting to Secure Checkout', 'Loading your cold-pressed order... ❄️');
+  localStorage.setItem('pjCart', JSON.stringify(cart));
+  setTimeout(() => {
+    window.location.href = 'checkout.html';
+  }, 400);
 }
 
 function showToast(title, desc) {
