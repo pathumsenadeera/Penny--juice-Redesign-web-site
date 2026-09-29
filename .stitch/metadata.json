@@ -1,10 +1,8 @@
-﻿{
-  "name": "projects/7350323181604267350",
-  "projectId": "7350323181604267350",
+{
+  "name": "projects/16057112916325087400",
+  "projectId": "16057112916325087400",
   "title": "Penny Juice Modern Redesign",
   "visibility": "PRIVATE",
-  "createTime": "2026-09-06T10:55:16.519622Z",
-  "updateTime": "2026-09-06T11:16:55.000000Z",
   "projectType": "PROJECT_DESIGN",
   "origin": "STITCH",
   "deviceType": "DESKTOP",
@@ -15,18 +13,116 @@
     "roundness": "ROUND_EIGHT"
   },
   "screens": {
-    "index": { "id": "82b2750a54e4424185078ab4699c6f32", "sourceScreen": "projects/7350323181604267350/screens/82b2750a54e4424185078ab4699c6f32", "width": 2560, "height": 5516, "title": "Penny Juice Landing Page" },
-    "shop": { "id": "08ad6efa5b804edcbfac47f8f9a8cf1f", "sourceScreen": "projects/7350323181604267350/screens/08ad6efa5b804edcbfac47f8f9a8cf1f", "width": 2560, "height": 2426, "title": "Penny Juice Shop" },
-    "product-detail": { "id": "5874a1d6d48a42c79c5c10a5d3185404", "sourceScreen": "projects/7350323181604267350/screens/5874a1d6d48a42c79c5c10a5d3185404", "width": 2560, "height": 5094, "title": "Kiwi Vitality Product Detail" },
-    "learn": { "id": "d1a2d5224da3499ba02082fd1618c2fe", "sourceScreen": "projects/7350323181604267350/screens/d1a2d5224da3499ba02082fd1618c2fe", "width": 2560, "height": 4200, "title": "Penny Juice Learn Page" },
-    "ingredients": { "id": "5455a691a4b1445bb47bb022295bdd94", "sourceScreen": "projects/7350323181604267350/screens/5455a691a4b1445bb47bb022295bdd94", "width": 2560, "height": 4800, "title": "Penny Juice Ingredients" },
-    "blog": { "id": "82a2ef5321cc4c79b0e0ab6b4365a989", "sourceScreen": "projects/7350323181604267350/screens/82a2ef5321cc4c79b0e0ab6b4365a989", "width": 2560, "height": 4100, "title": "Penny Juice Blog Listing" },
-    "contact": { "id": "63aed1eb88bf42d2b9e789ee1f0c2659", "sourceScreen": "projects/7350323181604267350/screens/63aed1eb88bf42d2b9e789ee1f0c2659", "width": 2560, "height": 3800, "title": "Penny Juice Contact Us" },
-    "search": { "id": "c38dfb2515b54724bf8523c41c8bfb59", "sourceScreen": "projects/7350323181604267350/screens/c38dfb2515b54724bf8523c41c8bfb59", "width": 2560, "height": 2744, "title": "Penny Juice Search Results" },
-    "login": { "id": "200490b2dc2140d9a7856ca6a0c03c1d", "sourceScreen": "projects/7350323181604267350/screens/200490b2dc2140d9a7856ca6a0c03c1d", "width": 2560, "height": 2096, "title": "Penny Juice Login" },
-    "cart": { "id": "ffd0d021e5b14da1acaf7285f133c2a3", "sourceScreen": "projects/7350323181604267350/screens/ffd0d021e5b14da1acaf7285f133c2a3", "width": 2560, "height": 3200, "title": "Penny Juice Shopping Cart" },
-    "checkout": { "id": "2d8d9bb3395c47408b0f9d2aff6e3e7c", "sourceScreen": "projects/7350323181604267350/screens/2d8d9bb3395c47408b0f9d2aff6e3e7c", "width": 2560, "height": 3600, "title": "Penny Juice Checkout" },
-    "faq": { "id": "200490b2dc2140d9a7856ca6a0c03c1d", "sourceScreen": "projects/7350323181604267350/screens/200490b2dc2140d9a7856ca6a0c03c1d", "width": 2560, "height": 3400, "title": "Penny Juice FAQ" }
+    "index": {
+      "id": "16652676999838761532",
+      "sourceScreen": "projects/16057112916325087400/screens/16652676999838761532",
+      "width": 2560,
+      "height": 6320,
+      "title": "Penny Juice Landing Page",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1XZ4XK_Gl8-xSaKAT1RCl3vdfU-tTDhDWzkzS1D0AR9KJLsLBY00V_6D188PZ92bU6_zQDdNyApJ-MvhTseUH6_aPi50U_fFYJwCuWXPQybaVkkeHcgEDc3w4Lf-28oWXSMe3Ec6NFstYlDfPreqdjJjBu7k7TXdZ1SYoHW4banB-ausggc03O2SvxSPFwG51jOFekPv6WZ0g2w4Yy21ye6sgtq5iKJf-vMn8n4MAEShKyYJdbHFDx7zzOj7Qwjwx2SsGc71cKEsQ",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmNjYTA5YzgyMDg5YWY3MmFlZTA3N2UwNxILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "shop": {
+      "id": "18352227816454307204",
+      "sourceScreen": "projects/16057112916325087400/screens/18352227816454307204",
+      "width": 2560,
+      "height": 3486,
+      "title": "Penny Juice Shop",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1Vy6pPGx6UyzCKI_zMqfobCzQ0Z4XBcjAdzHW8koNjWnlw_SXCF3Kbho3gpOMbElhNCZE5VafQcrYNVJbcqEpRgL2qPLOZXmy2yZQ2_t-V_klxebXe3KkgM1wpErdRe7W217GZD1pK1N3M0-MsgdLUNaVcLhOYm7ibv-qEyVdllEK-7nNNA1uJo4oATmn4lff9bRiSR93ArsWpkRu9-s8vYUJHNg-UaiHO32jM3TMsCMYgKzvJocN60ld_KMtuyE3P31MEREbh5wRA",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmQwNDJhY2ZkMDFhNjExMWZhNzIwZTRjZhILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "product-detail": {
+      "id": "68816938196858023",
+      "sourceScreen": "projects/16057112916325087400/screens/68816938196858023",
+      "width": 2560,
+      "height": 3812,
+      "title": "Kiwi Vitality Product Detail",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1U5bdc2Z19FYZ27cGHTB89WC9O1OhcmVAY55gSBvzIszQw0ZoNWup6YrP8RNX-01ttnEvjNxVHe6_4b2yzkKDkbkntn8SfW4EEPRXEgG2PmtetyQthGQEz5NaUOjZgnrfq0K7GUNaFGJS9LYoINdUomGv2Pjonk3UZHYXpqFt1i-sY8NZ06SNDIDQyK8rJ64D1Zb2yh1TXvyIAtb5Pl6ACtK9i9iMauo8_ImZKc07pGmXQ2Shx2kKmnLVQhvkSUpGv0rusEj93h-b4",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM5OTIxNzk0NDJiMDczYWY0Njk0YTE5ZDMwYhILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "learn": {
+      "id": "8740610550767330484",
+      "sourceScreen": "projects/16057112916325087400/screens/8740610550767330484",
+      "width": 2560,
+      "height": 4090,
+      "title": "Penny Juice Learn Page",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1UB_fT6I3EhHwtvPhEtEapMNLl-uI7a6MEurWv-htj2rbh3pq7lqd6pd8lIr1h_CS6Aj7dd2IPd43DjBPAhSpIg7KLo6Ds1vyJXMXj009h3ToImB6G5i4rgVOoCTcedfQTarwDMCfrs8VcflU18qRvBmAnJYjP2b3wakBhsMnQtOGdXpIcOobxBkc6ktwfdRn3RwJEbbJ7HdXG51mPxVehM75Mmkz1cRp8h7SVx7iMO_6-m-_K-4RRxCwORYF7sJpchjZxVbNEqJJM",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmQ0OThiNzE3MDc3OTlmZGU2NzEzNDdhNBILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "ingredients": {
+      "id": "399812366944113873",
+      "sourceScreen": "projects/16057112916325087400/screens/399812366944113873",
+      "width": 2560,
+      "height": 7458,
+      "title": "Penny Juice Ingredients",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1UGxxP3lJB8LuYNm1eBQuCL8vIbLGCXU2wdmiENL7us6V2ncat846Fi8W1GwJJiJ-JfLzrEuBLDUi6AT-URIY69ezt8g_drzCbxmXtQYagkx-fzFDHHADxLKoqUkw1AhOd7q-U5tbIna9BThXvxNv9brGifx408tJQqHSF33GXBGSXdekTfCb9Hdnqim8oUDZu_IOUFhBnr3LntXp0i40Gsfxbg8sbYLA_ubv-oynOtBsSjlrfx_G3XzXvkGtplu-OPVcV6UIOstfc",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmQ2MzA3YWYwMDJhOTk1ZmJiMzA3YjU4MxILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "blog": {
+      "id": "9156994267055280535",
+      "sourceScreen": "projects/16057112916325087400/screens/9156994267055280535",
+      "width": 2560,
+      "height": 10664,
+      "title": "Penny Juice Blog Listing",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1V9Fglyi8pPC322yw9mvUTguUO3rlzMbkadzfxkqQZfygQWBnNGaFyUUexfg6MpUiVvR1iMj029zgElwkQC0nWMAICTjzHgl6ckThsBxQCT9CnEo0vVZr_4EjNA-lfd7wiL1YUzoQ_0SponKGAJ--vq4Eu_TbjMKSKzGgCity9-fCZ4DITI1K8IrfMteBD24teblwoirXM_0G8uODilct-r-R4F7EvRMnC3kHrYlzBh5i6pmTqA-f30O2Jc9f42KLbcYAv4sUmCUg",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmRhMjUzY2RkMDIwN2E5MTUyNDExYjgwMRILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "contact": {
+      "id": "3880446338519572021",
+      "sourceScreen": "projects/16057112916325087400/screens/3880446338519572021",
+      "width": 2560,
+      "height": 3896,
+      "title": "Penny Juice Contact Us",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1WJJkVMB3E1ya3Gfllpkt6Wa5GzLar4DSIA6C5zAj7FiI9hfNy5qu-QOSEj_0SvZpAoEWLvJdUhAdv3oftbyBLt6otpMM6sD56cfS_ItZnnB7_bfHGqIVILnY_g1G_xhmrCP1pLXXN6IaSQQ5dGGLqTjAaMTCQOCFdpS_cP_AXAzKbLJEiQgpz2lCsnzKFpBDj19GWepiTFl8nvYJAoqagqs3b9aqPtSsmV07ewA67WZyNo60K0boyRYqIGJI2Ab14ulCUzeWLXzQ",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmRmOTEwZDVhMDVjMmZmYjg0YzIzZTNkMhILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "search": {
+      "id": "17747735952571654963",
+      "sourceScreen": "projects/16057112916325087400/screens/17747735952571654963",
+      "width": 2560,
+      "height": 3474,
+      "title": "Penny Juice Search Results",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1X9KR5HmXoBVV7cQn1_cfKmOHRo6LlSfAZUYTgFv-BDZoq-HG1VOHY-peoUzRRA-Ak-JFxNpdj_tvCizFe4e3Gow5UJpqSD-J-G1PedTZ9YqduHwve0czDdnBGKayfOk7e2JSy9M8zLd6nf-o8PLsL3u474HiaIYk80SzjVeuSofpjUgXA5YbgiblmbWp9tTe65X1pCLq22_OR0jazw7pAzKEAxuIXmOGcV4v4qFNaD6eoGnKAycry4BfWKOdFy9rXRPfe2clhRYbg",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmUzOTBjZTk5MDczYWNjMTM3ZDBjOGE2ZhILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "login": {
+      "id": "17607105835662889067",
+      "sourceScreen": "projects/16057112916325087400/screens/17607105835662889067",
+      "width": 2560,
+      "height": 2698,
+      "title": "Penny Juice Login",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1Xzll6kXLa89Vb4Hyf20s-QbYZzSt6Ggpsu7LcrifhD83eZxus_4GhBeYOiVM9fmqtsJOsXckfML7yUxejzLz7dh8cOuZC9Jmq-EzJiORWiDcDe0dw22NkWfpdLo1v5NtC-3h0X4u1r8GroGsY2OiVznR-Ozym0BT2lOmOYon0y6aE1khmXRH3L_HercZPihRfuhyOdfnxu1phkv5jtshMj-TJLHIpEoyW8_F2uT5lSLsJdOZeOmBC8w4nm5aIqRg7nG5-dcL2L2GQ",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmU1NjIyODM2MDkzNGY3NGNiMDMwNTcwZRILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "cart": {
+      "id": "15388475963156743722",
+      "sourceScreen": "projects/16057112916325087400/screens/15388475963156743722",
+      "width": 2560,
+      "height": 3714,
+      "title": "Penny Juice Shopping Cart",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1XutQC9b5wbdiBE2ByBO89nZd69-JWdn4cfA-OjQ7PktVhwErSDaIz8kfAnkDtPedZOrEtivGDse89GuOuL6lMb10x8X2n1ZHBGXomZD2YQVM8kDsHDENKd7LXnnAyuvy_sYtech16x64gvIKt4vlyUn6TElcyGASarGEudIMh-qX9l5WczfD6-lQRmg0lb4U7bfa10ntiLNA4kQpYwR2ScKLFuHeyYOjfVZYfrCh-BojBl72BBnpovsWtkCDjetfu65b3rlG5mPrI",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmU3ZmNkMmEzMDUzYjc5NmVlZjM2ZTQ4YhILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "checkout": {
+      "id": "16923549932456565325",
+      "sourceScreen": "projects/16057112916325087400/screens/16923549932456565325",
+      "width": 2560,
+      "height": 6786,
+      "title": "Penny Juice Checkout",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1X5pO9r9T-glxHVnOYthLjqajGO9OR0kfPbWk48GIVRAS-QMVUjaSWf0UmWuurXpd4LyOV5yRMKXdTvZfrxFy2bw7AalDjNsfuw58-nAfHU4hnW7JDoA3iXmtdanGnHvfVyK9Jajz227AaV2zxpDhZfQ_CKgrPCsGNMWxy0730aUkqvhI8fSphDFsaK7FbBLlAjcObjIJcXiCbSbvc9Txscs5OA3B3jC72ffVyFX8f50h54d44zkkuMv8okcT7i-qcffkPOcUwTVQ",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmU4Y2Q3MGM3MDVjMmZmM2FhMjAyYzg1YhILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    },
+    "faq": {
+      "id": "5301805174422314326",
+      "sourceScreen": "projects/16057112916325087400/screens/5301805174422314326",
+      "width": 2560,
+      "height": 3536,
+      "title": "Penny Juice FAQ",
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1WljftUQxWp0p_1Ch2r8CyZJc69vH5J1uBAdOJA-i_d55on-4bbdYnMhe5tWnx0aqfa1BHxa2KJQus-ToytCL45ur9MlwyIyvek2GwhFxSScf9CZ-OzCHkSe53iuEAZi8Ba41B_CM9V5RcpU1O6obhmHXfE5UsoAjWGT0F_BtB2B8xX_730n8uPt92Qv_uDxUaXJdDeQsnIlMj-rIdW4HHFhg9LZLjE7yw8eQAH_Vz_9-sZd5YnfvYlIjLofzhUm8ar7tLI878ciQ",
+      "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NWM2NmU5ZWE3OTYyMDJhOTk1YmIzZjBiMTQ5ZhILEgcQz7Kr3tENGAGSASQKCnByb2plY3RfaWQSFkIUMTYwNTcxMTI5MTYzMjUwODc0MDA&filename=&opi=96797242"
+    }
   },
-  "metadata": { "userRole": "OWNER" }
+  "metadata": {
+    "userRole": "OWNER"
+  }
 }

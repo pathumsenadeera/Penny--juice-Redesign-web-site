@@ -1,5 +1,5 @@
-﻿# Design System: Penny Juice — Modern Redesign
-**Project ID:** [To be populated after project creation]
+# Design System: Penny Juice — Modern Redesign
+**Project ID:** 16057112916325087400
 
 ## 1. Visual Theme & Atmosphere
 Penny Juice radiates a fresh, vibrant, and premium wellness brand feel. The design is clean and airy, with generous whitespace. The atmosphere is optimistic and energizing — like stepping into a sun-drenched farmer's market.

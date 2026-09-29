@@ -1,5 +1,5 @@
-﻿# Penny Juice — Site Constitution
-**Stitch Project ID:** [To be populated]
+# Penny Juice — Site Constitution
+**Stitch Project ID:** 16057112916325087400
 
 ## 1. Core Identity
 - **Project Name:** Penny Juice
@@ -38,41 +38,41 @@ penny-juice/
 - **Navigation Strategy:** Sticky top navigation bar — Logo (left), Nav links (center), Search/Login/Cart icons (right). All pages link back to each other.
 
 ## 4. Live Sitemap
-- [ ] index.html — Home / Landing page
-- [ ] shop.html — Shop / Product Listing
-- [ ] product-detail.html — Product Details page
-- [ ] learn.html — Learn / Educational Content
-- [ ] ingredients.html — Ingredients Information
-- [ ] blog.html — Blog
-- [ ] contact.html — Contact with form
-- [ ] search.html — Search Products
-- [ ] login.html — User Login
-- [ ] cart.html — Shopping Cart
-- [ ] checkout.html — Checkout / Buy
-- [ ] faq.html — FAQ
+- [x] index.html — Home / Landing page
+- [x] shop.html — Shop / Product Listing
+- [x] product-detail.html — Product Details page
+- [x] learn.html — Learn / Educational Content
+- [x] ingredients.html — Ingredients Information
+- [x] blog.html — Blog
+- [x] contact.html — Contact with form
+- [x] search.html — Search Products
+- [x] login.html — User Login
+- [x] cart.html — Shopping Cart
+- [x] checkout.html — Checkout / Buy
+- [x] faq.html — FAQ
 
 ## 5. The Roadmap (Backlog)
 
 ### High Priority
 - [x] Create DESIGN.md and SITE.md foundations
-- [ ] Build index.html (Home — hero, featured products, mission)
-- [ ] Build shop.html (Products grid — 8 juices with filters)
-- [ ] Build product-detail.html (Juice detail, ingredients, add to cart)
+- [x] Build index.html (Home — hero, featured products, mission)
+- [x] Build shop.html (Products grid — 8 juices with filters)
+- [x] Build product-detail.html (Juice detail, ingredients, add to cart)
 
 ### Medium Priority
-- [ ] Build learn.html (Mission, owner story, wellness education)
-- [ ] Build ingredients.html (Interactive ingredient cards)
-- [ ] Build blog.html (Blog grid with articles)
-- [ ] Build contact.html (Contact form + store finder)
-- [ ] Build search.html (Search UI with filters)
-- [ ] Build login.html (Login + register tabs)
-- [ ] Build cart.html (Cart items + summary)
-- [ ] Build checkout.html (Multi-step checkout)
+- [x] Build learn.html (Mission, owner story, wellness education)
+- [x] Build ingredients.html (Interactive ingredient cards)
+- [x] Build blog.html (Blog grid with articles)
+- [x] Build contact.html (Contact form + store finder)
+- [x] Build search.html (Search UI with filters)
+- [x] Build login.html (Login + register tabs)
+- [x] Build cart.html (Cart items + summary)
+- [x] Build checkout.html (Multi-step checkout)
 
 ### Low Priority
-- [ ] Build faq.html (Accordion FAQ sections)
-- [ ] Add micro-animations and polish
-- [ ] Add responsive mobile menu
+- [x] Build faq.html (Accordion FAQ sections)
+- [x] Add micro-animations and polish
+- [x] Add responsive mobile menu
 
 ## 6. Products Reference
 - **Kiwi Vitality** — Kiwi, Apple, Lime, Ginger
