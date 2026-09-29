@@ -38,7 +38,7 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
 /* SINGLE UNIFIED TOP NAVBAR */
 .pj-nav{position:sticky;top:0;left:0;right:0;width:100%;z-index:9999;background:#ffffff;border-bottom:1px solid #F1F5F9;box-shadow:0 2px 10px rgba(0,0,0,0.03);height:72px;display:flex;align-items:center;font-family:'Poppins',sans-serif;}
 .pj-nav .pj-inner{max-width:1280px;margin:0 auto;width:100%;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
-.pj-logo img, .pj-logo-img{width:38px;height:38px;object-fit:contain;display:inline-block;flex-shrink:0;}
+.pj-logo img, .pj-logo-img{width:36px !important;height:36px !important;max-width:36px !important;max-height:36px !important;object-fit:contain;display:inline-block;flex-shrink:0;}
 .pj-logo{font-size:22px;font-weight:800;color:#F9A602;text-decoration:none;display:flex;align-items:center;gap:8px;letter-spacing:-0.5px;transition:transform 0.2s;}
 .pj-logo:hover{transform:scale(1.02);}
 .pj-logo span{color:#1A1A2E;}
@@ -93,7 +93,7 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
 <!-- SINGLE UNIFIED TOP NAVBAR -->
 <nav class="pj-nav" id="pj-main-nav">
   <div class="pj-inner">
-    <a href="index.html" class="pj-logo"><img src="images/logo.png" alt="Penny Juice Logo" class="pj-logo-img" />Penny<span>Juice</span></a>
+    <a href="index.html" class="pj-logo"><img src="images/logo.png" alt="Penny Juice Logo" class="pj-logo-img" style="height:36px;width:36px;max-height:36px;max-width:36px;object-fit:contain;" width="36" height="36" />Penny<span>Juice</span></a>
     <ul class="pj-links">
       <li><a href="shop.html">Shop</a></li>
       <li><a href="learn.html">Learn</a></li>
@@ -129,9 +129,112 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
   <!-- 2-COLUMN CART LAYOUT -->
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
     
-    <!-- LEFT: CART ITEMS LIST (8 cols) -->
+        <!-- LEFT: CART ITEMS LIST (8 cols) -->
     <div class="lg:col-span-8 space-y-4" id="cartItemsContainer">
-      <!-- Items dynamically populated via JavaScript -->
+      <!-- Item 1: Kiwi Vitality -->
+      <div class="cart-card bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] flex flex-col sm:flex-row items-center gap-5">
+        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-slate-50 flex-shrink-0 border border-slate-100">
+          <img id="cart-img-0" src="images/kiwi-vitality.jpeg" alt="Kiwi Vitality" class="w-full h-full object-cover"/>
+        </div>
+        <div class="flex-grow text-center sm:text-left space-y-1">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <div class="flex items-center justify-center sm:justify-start gap-2">
+              <h3 class="text-base sm:text-lg font-bold text-[#1A1A2E]">Kiwi Vitality</h3>
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">Best Seller</span>
+            </div>
+            <span class="text-base font-extrabold text-[#1A1A2E]">$8.99</span>
+          </div>
+          <p class="text-xs text-slate-500"><span class="font-semibold text-slate-600">Ingredients:</span> Kiwi, Apple, Lime, Ginger</p>
+          <span class="text-xs font-medium text-slate-400 block">$8.99 each • 16 oz Cold-Pressed</span>
+          <div class="flex items-center justify-between pt-3 mt-2 border-t border-slate-50">
+            <div class="flex items-center bg-slate-100 rounded-full p-1 border border-slate-200">
+              <button type="button" onclick="changeQty(0, -1)" class="w-7 h-7 rounded-full bg-white text-slate-700 hover:text-[#F9A602] flex items-center justify-center font-bold text-sm shadow-sm transition-colors">
+                <span class="material-symbols-outlined text-sm">remove</span>
+              </button>
+              <span class="w-8 text-center text-xs font-bold text-[#1A1A2E]">1</span>
+              <button type="button" onclick="changeQty(0, 1)" class="w-7 h-7 rounded-full bg-white text-slate-700 hover:text-[#F9A602] flex items-center justify-center font-bold text-sm shadow-sm transition-colors">
+                <span class="material-symbols-outlined text-sm">add</span>
+              </button>
+            </div>
+            <button type="button" onclick="removeItem(0)" class="text-xs text-red-500 hover:text-red-700 font-semibold flex items-center gap-1 hover:underline transition-colors">
+              <span class="material-symbols-outlined text-sm">delete</span> Remove
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2: Green Glow -->
+      <div class="cart-card bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] flex flex-col sm:flex-row items-center gap-5">
+        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-slate-50 flex-shrink-0 border border-slate-100">
+          <img id="cart-img-1" src="images/green-glow.jpeg" alt="Green Glow" class="w-full h-full object-cover"/>
+        </div>
+        <div class="flex-grow text-center sm:text-left space-y-1">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <div class="flex items-center justify-center sm:justify-start gap-2">
+              <h3 class="text-base sm:text-lg font-bold text-[#1A1A2E]">Green Glow</h3>
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">Organic Detox</span>
+            </div>
+            <span class="text-base font-extrabold text-[#1A1A2E]">$17.98</span>
+          </div>
+          <p class="text-xs text-slate-500"><span class="font-semibold text-slate-600">Ingredients:</span> Spinach, Kale, Green Apple, Cucumber, Lemon</p>
+          <span class="text-xs font-medium text-slate-400 block">$8.99 each • 16 oz Cold-Pressed</span>
+          <div class="flex items-center justify-between pt-3 mt-2 border-t border-slate-50">
+            <div class="flex items-center bg-slate-100 rounded-full p-1 border border-slate-200">
+              <button type="button" onclick="changeQty(1, -1)" class="w-7 h-7 rounded-full bg-white text-slate-700 hover:text-[#F9A602] flex items-center justify-center font-bold text-sm shadow-sm transition-colors">
+                <span class="material-symbols-outlined text-sm">remove</span>
+              </button>
+              <span class="w-8 text-center text-xs font-bold text-[#1A1A2E]">2</span>
+              <button type="button" onclick="changeQty(1, 1)" class="w-7 h-7 rounded-full bg-white text-slate-700 hover:text-[#F9A602] flex items-center justify-center font-bold text-sm shadow-sm transition-colors">
+                <span class="material-symbols-outlined text-sm">add</span>
+              </button>
+            </div>
+            <button type="button" onclick="removeItem(1)" class="text-xs text-red-500 hover:text-red-700 font-semibold flex items-center gap-1 hover:underline transition-colors">
+              <span class="material-symbols-outlined text-sm">delete</span> Remove
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: Pineapple Pulse -->
+      <div class="cart-card bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] flex flex-col sm:flex-row items-center gap-5">
+        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-slate-50 flex-shrink-0 border border-slate-100">
+          <img id="cart-img-2" src="images/pineapple-pulse.jpeg" alt="Pineapple Pulse" class="w-full h-full object-cover"/>
+        </div>
+        <div class="flex-grow text-center sm:text-left space-y-1">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <div class="flex items-center justify-center sm:justify-start gap-2">
+              <h3 class="text-base sm:text-lg font-bold text-[#1A1A2E]">Pineapple Pulse</h3>
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">Immunity Boost</span>
+            </div>
+            <span class="text-base font-extrabold text-[#1A1A2E]">$8.99</span>
+          </div>
+          <p class="text-xs text-slate-500"><span class="font-semibold text-slate-600">Ingredients:</span> Pineapple, Orange, Turmeric, Coconut Water</p>
+          <span class="text-xs font-medium text-slate-400 block">$8.99 each • 16 oz Cold-Pressed</span>
+          <div class="flex items-center justify-between pt-3 mt-2 border-t border-slate-50">
+            <div class="flex items-center bg-slate-100 rounded-full p-1 border border-slate-200">
+              <button type="button" onclick="changeQty(2, -1)" class="w-7 h-7 rounded-full bg-white text-slate-700 hover:text-[#F9A602] flex items-center justify-center font-bold text-sm shadow-sm transition-colors">
+                <span class="material-symbols-outlined text-sm">remove</span>
+              </button>
+              <span class="w-8 text-center text-xs font-bold text-[#1A1A2E]">1</span>
+              <button type="button" onclick="changeQty(2, 1)" class="w-7 h-7 rounded-full bg-white text-slate-700 hover:text-[#F9A602] flex items-center justify-center font-bold text-sm shadow-sm transition-colors">
+                <span class="material-symbols-outlined text-sm">add</span>
+              </button>
+            </div>
+            <button type="button" onclick="removeItem(2)" class="text-xs text-red-500 hover:text-red-700 font-semibold flex items-center gap-1 hover:underline transition-colors">
+              <span class="material-symbols-outlined text-sm">delete</span> Remove
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3">
+        <a href="shop.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#F9A602] hover:text-[#e69902] transition-colors">
+          <span class="material-symbols-outlined text-sm">arrow_back</span> Continue Shopping
+        </a>
+        <button type="button" onclick="clearCart()" class="text-xs text-slate-400 hover:text-slate-600 font-medium transition-colors">
+          Empty Cart
+        </button>
+      </div>
     </div>
 
     <!-- RIGHT: ORDER SUMMARY (4 cols) -->
@@ -228,7 +331,7 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
       <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] hover:shadow-lg transition-all flex flex-col justify-between">
         <div>
           <div class="h-36 rounded-2xl overflow-hidden bg-amber-50/50 flex items-center justify-center mb-4">
-            <img src="images/golden-aura.jpeg" alt="Golden Aura" class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"/>
+            <img id="rec-img-golden" src="images/golden-aura.jpeg" alt="Golden Aura" class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"/>
           </div>
           <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-amber-50 text-amber-700">Immunity</span>
           <h3 class="font-bold text-sm text-[#1A1A2E] mt-1.5">Golden Aura</h3>
@@ -246,7 +349,7 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
       <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] hover:shadow-lg transition-all flex flex-col justify-between">
         <div>
           <div class="h-36 rounded-2xl overflow-hidden bg-amber-50/50 flex items-center justify-center mb-4">
-            <img src="images/lemon-lift.jpeg" alt="Lemon Lift" class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"/>
+            <img id="rec-img-lemon" src="images/lemon-lift.jpeg" alt="Lemon Lift" class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"/>
           </div>
           <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-yellow-50 text-yellow-700">Cleansing</span>
           <h3 class="font-bold text-sm text-[#1A1A2E] mt-1.5">Lemon Lift</h3>
@@ -264,7 +367,7 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
       <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] hover:shadow-lg transition-all flex flex-col justify-between">
         <div>
           <div class="h-36 rounded-2xl overflow-hidden bg-amber-50/50 flex items-center justify-center mb-4">
-            <img src="images/tropical-harmony.jpeg" alt="Tropical Harmony" class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"/>
+            <img id="rec-img-tropical" src="images/tropical-harmony.jpeg" alt="Tropical Harmony" class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"/>
           </div>
           <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-orange-50 text-orange-700">Exotic Blend</span>
           <h3 class="font-bold text-sm text-[#1A1A2E] mt-1.5">Tropical Harmony</h3>
@@ -282,7 +385,7 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
       <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] hover:shadow-lg transition-all flex flex-col justify-between">
         <div>
           <div class="h-36 rounded-2xl overflow-hidden bg-emerald-50/50 flex items-center justify-center mb-4">
-            <img src="images/zen-pear.jpeg" alt="Zen Pear" class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"/>
+            <img id="rec-img-zen" src="images/zen-pear.jpeg" alt="Zen Pear" class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"/>
           </div>
           <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">Calming</span>
           <h3 class="font-bold text-sm text-[#1A1A2E] mt-1.5">Zen Pear</h3>
@@ -311,6 +414,24 @@ body{font-family:'Poppins',sans-serif!important;background:#F8FAFC;color:#1A1A2E
 </div>
 
 <script>
+function resolveItemImage(id, currentImage) {
+  const map = {
+    'kiwi-vitality': 'cart-img-0',
+    'green-glow': 'cart-img-1',
+    'pineapple-pulse': 'cart-img-2',
+    'golden-aura': 'rec-img-golden',
+    'lemon-lift': 'rec-img-lemon',
+    'tropical-harmony': 'rec-img-tropical',
+    'zen-pear': 'rec-img-zen'
+  };
+  const elId = map[id];
+  if (elId) {
+    const el = document.getElementById(elId);
+    if (el && el.getAttribute('src')) return el.getAttribute('src');
+  }
+  return currentImage;
+}
+
 // INITIAL CART STATE WITH OUR REAL FLAVORS & IMAGES
 const defaultCartItems = [
   {
@@ -318,7 +439,7 @@ const defaultCartItems = [
     title: 'Kiwi Vitality',
     price: 8.99,
     qty: 1,
-    image: 'images/kiwi-vitality.jpeg',
+    image: resolveItemImage('kiwi-vitality', 'images/kiwi-vitality.jpeg'),
     ingredients: 'Kiwi, Apple, Lime, Ginger',
     badge: 'Best Seller'
   },
@@ -327,7 +448,7 @@ const defaultCartItems = [
     title: 'Green Glow',
     price: 8.99,
     qty: 2,
-    image: 'images/green-glow.jpeg',
+    image: resolveItemImage('green-glow', 'images/green-glow.jpeg'),
     ingredients: 'Spinach, Kale, Green Apple, Cucumber, Lemon',
     badge: 'Organic Detox'
   },
@@ -336,7 +457,7 @@ const defaultCartItems = [
     title: 'Pineapple Pulse',
     price: 8.99,
     qty: 1,
-    image: 'images/pineapple-pulse.jpeg',
+    image: resolveItemImage('pineapple-pulse', 'images/pineapple-pulse.jpeg'),
     ingredients: 'Pineapple, Orange, Turmeric, Coconut Water',
     badge: 'Immunity Boost'
   }
@@ -347,8 +468,8 @@ try {
   const saved = localStorage.getItem('pjCart');
   if (saved) {
     const parsed = JSON.parse(saved);
-    if (Array.isArray(parsed) && parsed.length > 0) {
-      cart = parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+      cart = parsed.map(item => ({ ...item, image: resolveItemImage(item.id, item.image) }));
     } else {
       cart = [...defaultCartItems];
     }
@@ -389,7 +510,7 @@ function renderCart() {
       <div class="cart-card bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-[0_4px_20px_rgba(26,26,46,0.04)] flex flex-col sm:flex-row items-center gap-5">
         <!-- Thumbnail -->
         <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-slate-50 flex-shrink-0 border border-slate-100">
-          <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover"/>
+          <img src="${resolveItemImage(item.id, item.image)}" alt="${item.title}" class="w-full h-full object-cover"/>
         </div>
 
         <!-- Info -->
@@ -583,7 +704,7 @@ renderCart();
   <div class="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
     <div class="flex flex-col gap-4">
       <a href="index.html" class="text-2xl font-black text-[#F9A602] tracking-tight flex items-center gap-2">
-        <img src="images/logo.png" alt="Penny Juice Logo" class="w-9 h-9 object-contain inline-block" />Penny<span class="text-white">Juice</span>
+        <img src="images/logo.png" alt="Penny Juice Logo" class="w-9 h-9 object-contain inline-block" style="height:36px;width:36px;max-height:36px;max-width:36px;object-fit:contain;" width="36" height="36" />Penny<span class="text-white">Juice</span>
       </a>
       <p class="text-gray-400 text-sm leading-relaxed max-w-[250px]">
         Vibrant, health-conscious organic juices delivered fresh to your door. Taste the difference of pure nature.
